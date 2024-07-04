@@ -1,12 +1,11 @@
 import {View, Text} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {ScrollView} from 'react-native';
 import {Row, Table} from 'react-native-table-component';
 import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 
 export default function TrendCoinsAndNfts({value, trends, visibleCount, state}) {
-  //   console.log(trends);
   const getFilteredTrends = () => {
     if (value === 'coins') {
       return trends.coins;
