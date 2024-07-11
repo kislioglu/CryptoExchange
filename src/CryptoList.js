@@ -1,6 +1,6 @@
 import {View, Text, FlatList} from 'react-native';
 import React from 'react';
-import CryptoRequest from '../services/apiRequests';
+import CryptoRequest from '../services/ApiRequests';
 
 export default function CryptoList() {
   const coinData = CryptoRequest();
