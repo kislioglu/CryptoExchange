@@ -8,8 +8,15 @@ import {
 } from 'react-native';
 import React from 'react';
 import Trends from '../marketTrends/Trends';
-
+import ContactUs from '../ContactUs/ContactUs';
+import {useNavigation} from '@react-navigation/native';
+import DownloadApp from '../DownloadApp/DownloadApp';
+import JoinUs from '../JoinUs/JoinUs';
+import HowItWorks from '../HowItWorks/HowItWorks';
+import FooterNav from '../Footer/FooterNav';
 export default function Home() {
+  const navigation = useNavigation();
+
   return (
     <ScrollView
       nestedScrollEnabled={true}
@@ -33,13 +40,37 @@ export default function Home() {
         </View>
       </View>
       <View style={styles.navigateButtonView}>
-        <TouchableOpacity style={styles.navigateButton} activeOpacity={0.3}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('CryptoList')}
+          style={styles.navigateButton}
+          activeOpacity={0.3}>
           <Text style={styles.navigateButtonText}>Get started now</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.walletImgView}>
+        <Image
+          style={styles.walletImg}
+          source={require('../../../assets/walletImg.png')}
+        />
       </View>
 
       <View style={{backgroundColor: '#fff'}}>
         <Trends />
+      </View>
+      <View style={{backgroundColor: '#f4f5f6'}}>
+        <ContactUs />
+      </View>
+      <View style={{backgroundColor: '#fff'}}>
+        <DownloadApp />
+      </View>
+      <View style={{backgroundColor: '#f4f5f6'}}>
+        <JoinUs />
+      </View>
+      <View style={{backgroundColor: '#fff'}}>
+        <HowItWorks />
+      </View>
+      <View style={{backgroundColor: '#fff'}}>
+        <FooterNav />
       </View>
     </ScrollView>
   );
@@ -104,5 +135,15 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 14,
     textAlign: 'center',
+  },
+  walletImgView: {
+    width: 400,
+    height: 400,
+    alignSelf: 'center',
+    marginLeft: 20,
+  },
+  walletImg: {
+    width: '100%',
+    height: '100%',
   },
 });
