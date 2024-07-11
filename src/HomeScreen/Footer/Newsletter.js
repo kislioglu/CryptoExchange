@@ -22,7 +22,7 @@ export default function Newsletter() {
   return (
     <View>
       <View>
-        <View style={styles.captionBtn} onPress={() => handleOpen()}>
+        <View style={styles.caption} onPress={() => handleOpen()}>
           <Text style={styles.captionText}>Newsletter</Text>
         </View>
         <View style={styles.subscribeView}>
@@ -55,14 +55,12 @@ export default function Newsletter() {
 }
 
 const styles = StyleSheet.create({
-  captionBtn: {
+  caption: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 20,
-    height: 40,
+    marginHorizontal: 20,
     alignItems: 'center',
     marginVertical: 30,
-    marginLeft: 20,
   },
   captionText: {
     fontWeight: 'bold',
@@ -113,7 +111,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: '90%',
     alignSelf: 'center',
-    marginTop: 40,
+    // marginTop: 40,
     borderColor: '#e6e8ec',
   },
 });
