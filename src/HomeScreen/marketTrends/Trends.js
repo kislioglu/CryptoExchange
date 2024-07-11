@@ -8,7 +8,6 @@ import {
 import React, {useState} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {Table, Row} from 'react-native-table-component';
-import {Image} from 'react-native';
 import TrendsRequest from '../../../services/TrendRequest';
 import TrendCoinsAndNfts from './TrendCoinsAndNfts';
 
@@ -116,46 +115,11 @@ const styles = StyleSheet.create({
     height: 40,
     borderBottomWidth: 1,
     borderColor: '#777e90',
+    fontSize: 16
   },
   text: {
-    textAlign: 'center',
+    marginLeft: 10,
     fontWeight: 'bold',
-  },
-  dataWrapper: {
-    marginTop: 5,
-  },
-  row: {
-    height: 50,
-  },
-  itemView: {
-    flexDirection: 'row',
-  },
-  itemImg: {
-    width: 32,
-    height: 32,
-    alignSelf: 'center',
-    borderRadius: 50,
-  },
-  itemName: {
-    color: '#000',
-    fontWeight: '600',
-    alignSelf: 'center',
-    marginLeft: 15,
-  },
-  priceText: {
-    textAlign: 'center',
-    fontWeight: '600',
-    color: '#000',
-  },
-  usdText: {
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-  red: {
-    color: 'red',
-  },
-  green: {
-    color: 'green',
   },
   moreOrCollapseBtn: {
     borderRadius: 20,
