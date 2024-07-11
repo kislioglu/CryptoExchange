@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {View, Text, Image, StyleSheet} from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
 import Animated, {
   Easing,
   useSharedValue,
@@ -117,11 +116,9 @@ const styles = StyleSheet.create({
   footerNavBtn: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 20,
+    marginHorizontal: 20,
     height: 40,
     alignItems: 'center',
-    marginBottom: 30,
-    marginLeft: 20,
   },
   footerNavText: {
     fontWeight: 'bold',
