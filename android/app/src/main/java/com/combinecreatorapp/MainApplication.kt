@@ -1,4 +1,4 @@
-package com.combinecreatorapp
+package com.CryptoExchange
 
 import android.app.Application
 import com.facebook.react.PackageList
