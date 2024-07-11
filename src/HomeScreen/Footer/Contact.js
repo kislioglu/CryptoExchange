@@ -51,13 +51,11 @@ export default function Contact() {
   return (
     <View>
       <View>
-        <View>
-          <TouchableOpacity
-            style={styles.captionBtn}
-            onPress={() => handleOpen()}>
-            <Text style={styles.captionText}>Contact</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.captionBtn}
+          onPress={() => handleOpen()}>
+          <Text style={styles.captionText}>Contact</Text>
+        </TouchableOpacity>
         {open && (
           <View>
             {items.map((item, index) => (
@@ -84,11 +82,9 @@ const styles = StyleSheet.create({
   captionBtn: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginRight: 20,
+    marginHorizontal: 20,
     height: 40,
     alignItems: 'center',
-    marginVertical: 30,
-    marginLeft: 20,
   },
   captionText: {
     fontWeight: 'bold',
@@ -102,7 +98,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: '90%',
     alignSelf: 'center',
-    marginTop: 40,
+    marginTop: 20,
     borderColor: '#e6e8ec',
   },
 });
