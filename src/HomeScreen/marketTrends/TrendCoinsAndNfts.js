@@ -5,7 +5,12 @@ import {Row, Table} from 'react-native-table-component';
 import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 
-export default function TrendCoinsAndNfts({value, trends, visibleCount, state}) {
+export default function TrendCoinsAndNfts({
+  value,
+  trends,
+  visibleCount,
+  state,
+}) {
   const getFilteredTrends = () => {
     if (value === 'coins') {
       return trends.coins;
@@ -79,31 +84,6 @@ export default function TrendCoinsAndNfts({value, trends, visibleCount, state}) 
 }
 
 const styles = StyleSheet.create({
-  marketTrendView: {},
-  marketTrendText: {
-    fontWeight: 'bold',
-    fontSize: 36,
-    color: '#23262f',
-    marginTop: 20,
-    marginBottom: 20,
-    marginLeft: 20,
-  },
-  dropDown: {
-    width: '90%',
-    marginLeft: 20,
-    marginBottom: 20,
-  },
-  container: {
-    flex: 1,
-    padding: 16,
-    paddingTop: 30,
-    backgroundColor: '#fff',
-  },
-  head: {
-    height: 40,
-    borderBottomWidth: 1,
-    borderColor: '#777e90',
-  },
   text: {
     textAlign: 'center',
     fontWeight: 'bold',
@@ -116,6 +96,7 @@ const styles = StyleSheet.create({
   },
   itemView: {
     flexDirection: 'row',
+    marginLeft: 10,
   },
   itemImg: {
     width: 32,
@@ -144,21 +125,5 @@ const styles = StyleSheet.create({
   },
   green: {
     color: 'green',
-  },
-  moreOrCollapseBtn: {
-    borderRadius: 20,
-    width: '90%',
-    height: 45,
-    alignSelf: 'center',
-    borderWidth: 2,
-    borderColor: '#e6e8ec',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  moreOrCollapseText: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#000',
   },
 });
