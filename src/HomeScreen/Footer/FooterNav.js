@@ -10,6 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import Contact from './Contact';
 import Newsletter from './Newsletter';
+import Copyright from './Copyright';
 
 export default function FooterNav() {
   const [open, setOpen] = useState(false);
@@ -87,6 +88,7 @@ export default function FooterNav() {
       <View style={styles.borderBottom} />
       <Contact />
       <Newsletter />
+      <Copyright />
     </View>
   );
 }
@@ -119,6 +121,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     height: 40,
     alignItems: 'center',
+    marginBottom: 20,
   },
   footerNavText: {
     fontWeight: 'bold',
@@ -132,7 +135,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     width: '90%',
     alignSelf: 'center',
-    marginVertical: 20,
+    marginBottom: 20,
     borderColor: '#e6e8ec',
   },
 });
