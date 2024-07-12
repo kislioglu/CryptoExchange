@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { TextInput, TouchableOpacity, View, Text, Image, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {
+  TextInput,
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+} from 'react-native';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -84,6 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'space-between',
     paddingRight: 10,
+    marginBottom: 40,
   },
   input: {
     flex: 1,
