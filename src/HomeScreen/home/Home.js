@@ -41,7 +41,7 @@ export default function Home() {
       </View>
       <View style={styles.navigateButtonView}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('CryptoList')}
+          onPress={() => navigation.navigate('Signup')}
           style={styles.navigateButton}
           activeOpacity={0.3}>
           <Text style={styles.navigateButtonText}>Get started now</Text>
