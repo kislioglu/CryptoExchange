@@ -4,6 +4,8 @@ import Home from '../HomeScreen/home/Home';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import CryptoList from '../CryptoList';
+import Signup from '../Login_Signup/Signup.js';
+import Login from '../Login_Signup/Login';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -24,6 +26,16 @@ export default function Navigation() {
           options={{headerShown: false}}
           name="CryptoList"
           component={CryptoList}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Signup"
+          component={Signup}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Login"
+          component={Login}
         />
       </Stack.Navigator>
     </NavigationContainer>
