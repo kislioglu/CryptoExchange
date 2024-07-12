@@ -85,6 +85,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     height: 40,
     alignItems: 'center',
+    marginBottom: 20,
   },
   captionText: {
     fontWeight: 'bold',
