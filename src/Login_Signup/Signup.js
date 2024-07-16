@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
   StyleSheet,
+  ScrollView,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
@@ -49,7 +50,7 @@ export default function Signup() {
     }
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.headerView}>
         <View style={styles.companyNameAndLogo}>
           <Image
@@ -60,9 +61,7 @@ export default function Signup() {
         </View>
         <View style={styles.loginRedirectView}>
           <Text style={styles.haveAnAccountText}>Already have an account?</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Login')}
-            style={styles.loginBtn}>
+          <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
             <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -111,6 +110,7 @@ export default function Signup() {
                 onChangeText={handleChange}
               />
             </View>
+            {error ? <Text>Should be e-mail format.</Text> : null}
           </View>
           <View>
             <Text style={styles.inputCaption}>PASSWORD</Text>
@@ -181,7 +181,7 @@ export default function Signup() {
           <Text style={styles.signUpText}>Sign up</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -193,7 +193,6 @@ const styles = StyleSheet.create({
   },
   headerView: {
     height: 290,
-    // backgroundColor: 'red',
   },
   companyNameAndLogo: {
     flexDirection: 'row',
@@ -286,6 +285,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#b1b5c3',
     borderRadius: 15,
+    height: 50,
   },
   inputCaption: {
     fontWeight: 'bold',
@@ -295,6 +295,8 @@ const styles = StyleSheet.create({
   input: {
     paddingHorizontal: 10,
     fontWeight: '600',
+    flex: 1,
+    height: '100%',
   },
   paswordInsideView: {
     flexDirection: 'row',
