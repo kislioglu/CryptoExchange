@@ -5,7 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import CryptoList from '../CryptoList';
 import Signup from '../Login_Signup/Signup.js';
-import Login from '../Login_Signup/Login';
+import SignIn from '../Login_Signup/SignIn';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -34,8 +34,8 @@ export default function Navigation() {
         />
         <Stack.Screen
           options={{headerShown: false}}
-          name="Login"
-          component={Login}
+          name="SignIn"
+          component={SignIn}
         />
       </Stack.Navigator>
     </NavigationContainer>
