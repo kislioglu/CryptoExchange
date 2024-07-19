@@ -36,7 +36,7 @@ export default function Signup() {
   const handleChange = text => {
     setEmail(text);
     if (!validateEmail(text)) {
-      setError('Geçerli bir e-posta adresi giriniz');
+      setError('Should be e-mail format!');
     } else {
       setError('');
     }
@@ -110,7 +110,7 @@ export default function Signup() {
                 onChangeText={handleChange}
               />
             </View>
-            {error ? <Text>Should be e-mail format.</Text> : null}
+            {error ? <Text>{error}</Text> : null}
           </View>
           <View>
             <Text style={styles.inputCaption}>PASSWORD</Text>
@@ -188,7 +188,6 @@ export default function Signup() {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
     backgroundColor: '#fff',
   },
   headerView: {
@@ -331,6 +330,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 20,
   },
   signUpText: {
     fontWeight: '600',
