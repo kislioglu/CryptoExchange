@@ -6,6 +6,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import CryptoList from '../CryptoList';
 import Signup from '../Login_Signup/Signup.js';
 import SignIn from '../Login_Signup/SignIn';
+import ForgotPassword from '../Login_Signup/ForgotPassword';
+import TodaysCurrency from '../CryptoCurrency/TodaysCurrency';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -36,6 +38,16 @@ export default function Navigation() {
           options={{headerShown: false}}
           name="SignIn"
           component={SignIn}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="ForgotPassword"
+          component={ForgotPassword}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="TodaysCurrency"
+          component={TodaysCurrency}
         />
       </Stack.Navigator>
     </NavigationContainer>
