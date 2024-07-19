@@ -4,8 +4,8 @@ import {StyleSheet} from 'react-native';
 import {Image} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import Email from './Email';
-import PhoneNmbr from './PhoneNmbr';
+import Email from './Login_ways/Email';
+import PhoneNmbr from './Login_ways/PhoneNmbr';
 
 export default function SignIn() {
   const navigation = useNavigation();
