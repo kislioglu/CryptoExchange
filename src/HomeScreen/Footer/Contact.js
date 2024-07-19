@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     height: 40,
     alignItems: 'center',
-    marginBottom: 20,
   },
   captionText: {
     fontWeight: 'bold',
@@ -96,7 +95,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   borderBottom: {
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     width: '90%',
     alignSelf: 'center',
     marginTop: 20,
