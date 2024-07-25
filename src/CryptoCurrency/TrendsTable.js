@@ -55,10 +55,16 @@ export default function TrendsTable() {
                         : {uri: trend.thumb}
                     }
                   />
-                  <Text style={styles.itemName}>
+                  <Text
+                    ellipsizeMode="tail"
+                    numberOfLines={1}
+                    style={styles.itemName}>
                     {value === 'coins' ? trend.item.name : trend.name}
                   </Text>
-                  <Text>
+                  <Text
+                    ellipsizeMode="tail"
+                    numberOfLines={1}
+                    style={{width: 40}}>
                     {value === 'coins' ? trend.item.symbol : trend.symbol}
                   </Text>
                 </View>
@@ -160,7 +166,7 @@ const styles = StyleSheet.create({
   },
   itemView: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'center',    
   },
   itemImg: {
     width: 32,
@@ -173,6 +179,7 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: '600',
     marginRight: 5,
+    maxWidth: 150,
   },
   itemContainerView: {
     gap: 10,
