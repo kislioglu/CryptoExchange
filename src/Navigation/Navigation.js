@@ -7,7 +7,7 @@ import CryptoList from '../CryptoList';
 import Signup from '../Login_Signup/Signup.js';
 import SignIn from '../Login_Signup/SignIn';
 import ForgotPassword from '../Login_Signup/ForgotPassword';
-import TodaysCurrency from '../CryptoCurrency/TodaysCurrency';
+import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPrices';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -46,8 +46,8 @@ export default function Navigation() {
         />
         <Stack.Screen
           options={{headerShown: false}}
-          name="TodaysCurrency"
-          component={TodaysCurrency}
+          name="TodaysTrendCurrencyPrices"
+          component={TodaysTrendCurrencyPrices}
         />
       </Stack.Navigator>
     </NavigationContainer>
