@@ -103,7 +103,11 @@ export default function TrendsTable() {
                               .toString()
                               .substring(0, 5),
                           ) + '%'
-                        : trend.data.floor_price}
+                        : Number(
+                            trend.data.floor_price_in_usd_24h_percentage_change
+                              .toString()
+                              .substring(0, 5),
+                          ) + '%'}
                     </Text>
                   </View>
                   <View style={styles.eachItemView}>
@@ -166,7 +170,7 @@ const styles = StyleSheet.create({
   },
   itemView: {
     flexDirection: 'row',
-    alignItems: 'center',    
+    alignItems: 'center',
   },
   itemImg: {
     width: 32,
