@@ -8,6 +8,7 @@ import Signup from '../Login_Signup/Signup.js';
 import SignIn from '../Login_Signup/SignIn';
 import ForgotPassword from '../Login_Signup/ForgotPassword';
 import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPrices';
+import CoinCurrencyGraphics from '../CoinCurrencyGraphic/CoinCurrencyGraphics';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -48,6 +49,11 @@ export default function Navigation() {
           options={{headerShown: false}}
           name="TodaysTrendCurrencyPrices"
           component={TodaysTrendCurrencyPrices}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="CoinCurrencyGraphics"
+          component={CoinCurrencyGraphics}
         />
       </Stack.Navigator>
     </NavigationContainer>
