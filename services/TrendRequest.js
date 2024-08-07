@@ -29,6 +29,12 @@ export default function TrendsRequest() {
       }
     };
     fetchTrends();
+
+    const interval = setInterval(fetchTrends, 1000);
+
+    return () => clearInterval(interval);
+
   }, []);
+
   return trends;
 }
