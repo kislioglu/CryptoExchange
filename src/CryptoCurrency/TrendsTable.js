@@ -1,12 +1,16 @@
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {ScrollView} from 'react-native';
 import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import TrendsRequest from '../../services/TrendRequest';
+import {useNavigation} from '@react-navigation/native';
+import SearchCoin from '../../services/SearchCoin';
 
 export default function TrendsTable() {
+  const searchedCoin = SearchCoin();
+  const navigation = useNavigation();
   const trends = TrendsRequest();
   const getFilteredTrends = () => {
     if (value === 'coins') {
@@ -23,6 +27,10 @@ export default function TrendsTable() {
     {label: 'Cryptocurrencies', value: 'coins'},
     {label: 'NFT', value: 'nfts'},
   ]);
+  const handleOnPress = trend => {
+    // SearchCoin(trend.item.name);
+    navigation.navigate('CoinCurrencyGraphics', {coinName: trend.item.name});
+  };
 
   const filteredTrends = getFilteredTrends();
   return (
@@ -45,7 +53,10 @@ export default function TrendsTable() {
         <View style={{gap: 20}}>
           {filteredTrends?.map((trend, index) => {
             return (
-              <View style={styles.itemNameAndImg} key={index}>
+              <TouchableOpacity
+                onPress={() => handleOnPress(trend)}
+                style={styles.itemNameAndImg}
+                key={index}>
                 <View style={styles.itemView}>
                   <Image
                     style={styles.itemImg}
@@ -121,7 +132,7 @@ export default function TrendsTable() {
                     </Text>
                   </View>
                 </View>
-              </View>
+              </TouchableOpacity>
             );
           })}
         </View>
