@@ -14,18 +14,22 @@ export default function CryptoRequest() {
       };
 
       try {
-        const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd', options);
+        const response = await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&sparkline=true', options);
         if (!response.ok) {
           throw new Error('Network response was not ok ' + response.statusText);
         }
         const data = await response.json();
-        setCoinData(data); // Veriyi useState ile set ediyoruz
+        setCoinData(data);
       } catch (error) {
         console.error('An error occurred while fetching:', error);
       }
     };
 
     fetchCoinData();
+    
+    const interval = setInterval(fetchCoinData, 15000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return coinData;
