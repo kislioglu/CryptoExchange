@@ -6,10 +6,8 @@ import {StyleSheet} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import TrendsRequest from '../../services/TrendRequest';
 import {useNavigation} from '@react-navigation/native';
-import SearchCoin from '../../services/SearchCoin';
 
 export default function TrendsTable() {
-  const searchedCoin = SearchCoin();
   const navigation = useNavigation();
   const trends = TrendsRequest();
   const getFilteredTrends = () => {
@@ -28,8 +26,7 @@ export default function TrendsTable() {
     {label: 'NFT', value: 'nfts'},
   ]);
   const handleOnPress = trend => {
-    // SearchCoin(trend.item.name);
-    navigation.navigate('CoinCurrencyGraphics', {coinName: trend.item.name});
+    navigation.navigate('CoinCurrencyGraphics', {coinId: trend.item.id});
   };
 
   const filteredTrends = getFilteredTrends();
