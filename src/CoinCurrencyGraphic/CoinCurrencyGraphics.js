@@ -14,13 +14,22 @@ export default function CoinCurrencyGraphics({route}) {
   const coinData = CryptoRequest();
   const [coinsInfo, setCoinsInfo] = useState();
   const [spark, setSpark] = useState([]);
-  const {coinName} = route.params;
-  console.log(coinName);
+  const [matchedCoin, setMatchedCoin] = useState();
+  const {coinId} = route.params;
   useEffect(() => {
-    if (coinData && coinData.length > 0) {
-      setCoinsInfo(coinData[0]);
+    if (coinData) {
+      const findMatchedCoin = coinData.find(obj => obj.id === coinId);
+      if (findMatchedCoin) {
+        setMatchedCoin(findMatchedCoin);
+      }
     }
-  }, [coinData]);
+  }, [coinData, coinId]);
+
+  useEffect(() => {
+    if (matchedCoin) {
+      setCoinsInfo(matchedCoin);
+    }
+  }, [matchedCoin]);
 
   useEffect(() => {
     if (
@@ -40,12 +49,11 @@ export default function CoinCurrencyGraphics({route}) {
 
   const isValidData =
     spark.length > 0 && spark.every(d => !isNaN(d.x) && !isNaN(d.y));
-
   return (
     <View style={styles.container}>
       {isValidData ? (
         <Chart
-          style={{height: 400, width: '100%'}}
+          style={{height: 400, width: '90%'}}
           data={spark}
           padding={{left: 40, bottom: 20, right: 20, top: 20}}
           xDomain={{
@@ -55,10 +63,11 @@ export default function CoinCurrencyGraphics({route}) {
           yDomain={{
             min: Math.min(...spark.map(d => d.y)),
             max: Math.max(...spark.map(d => d.y)),
-          }}>
+          }}
+          viewport={{size: {width: 83}}}>
           <VerticalAxis
             tickCount={30}
-            theme={{labels: {formatter: v => v.toFixed(2)}}}
+            theme={{labels: {formatter: v => v.toFixed(1)}}}
           />
           <HorizontalAxis tickCount={6} />
           <Area
