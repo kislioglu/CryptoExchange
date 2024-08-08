@@ -27,7 +27,7 @@ export default function CryptoRequest() {
 
     fetchCoinData();
     
-    const interval = setInterval(fetchCoinData, 15000);
+    const interval = setInterval(fetchCoinData, 45000);
 
     return () => clearInterval(interval);
   }, []);

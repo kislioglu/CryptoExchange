@@ -1,5 +1,4 @@
-import {View, Text} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
 export default function TrendsRequest() {
   const [trends, setTrends] = useState([]);
@@ -30,10 +29,9 @@ export default function TrendsRequest() {
     };
     fetchTrends();
 
-    const interval = setInterval(fetchTrends, 1000);
+    const interval = setInterval(fetchTrends, 600000);
 
     return () => clearInterval(interval);
-
   }, []);
 
   return trends;
