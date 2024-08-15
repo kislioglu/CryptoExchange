@@ -1,14 +1,13 @@
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import React, {useState} from 'react';
 import {ScrollView} from 'react-native';
-import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import TrendsRequest from '../../services/TrendRequest';
-import {useNavigation} from '@react-navigation/native';
+import TrendCoins from './TrendsTable/TrendCoins';
+import TrendNfts from './TrendsTable/TrendNfts';
 
 export default function TrendsTable() {
-  const navigation = useNavigation();
   const trends = TrendsRequest();
   const getFilteredTrends = () => {
     if (value === 'coins') {
@@ -25,9 +24,6 @@ export default function TrendsTable() {
     {label: 'Cryptocurrencies', value: 'coins'},
     {label: 'NFT', value: 'nfts'},
   ]);
-  const handleOnPress = trend => {
-    navigation.navigate('CoinCurrencyGraphics', {coinId: trend.item.id});
-  };
 
   const filteredTrends = getFilteredTrends();
   return (
@@ -48,90 +44,15 @@ export default function TrendsTable() {
 
       <ScrollView style={styles.dataWrapper}>
         <View style={{gap: 20}}>
-          {filteredTrends?.map((trend, index) => {
-            return (
-              <TouchableOpacity
-                onPress={() => handleOnPress(trend)}
-                style={styles.itemNameAndImg}
-                key={index}>
-                <View style={styles.itemView}>
-                  <Image
-                    style={styles.itemImg}
-                    source={
-                      value === 'coins'
-                        ? {uri: trend.item.thumb}
-                        : {uri: trend.thumb}
-                    }
-                  />
-                  <Text
-                    ellipsizeMode="tail"
-                    numberOfLines={1}
-                    style={styles.itemName}>
-                    {value === 'coins' ? trend.item.name : trend.name}
-                  </Text>
-                  <Text
-                    ellipsizeMode="tail"
-                    numberOfLines={1}
-                    style={{width: 40}}>
-                    {value === 'coins' ? trend.item.symbol : trend.symbol}
-                  </Text>
-                </View>
-
-                <View style={styles.itemContainerView}>
-                  <View style={styles.eachItemView}>
-                    <Text style={styles.eachItemLabel}>Price</Text>
-                    <Text style={styles.priceText}>
-                      {value === 'coins'
-                        ? Number(
-                            trend.item.data.price.toString().substring(0, 7),
-                          )
-                        : Number(
-                            trend.floor_price_in_native_currency
-                              .toString()
-                              .substring(0, 4),
-                          )}
-                    </Text>
-                  </View>
-                  <View style={styles.eachItemView}>
-                    <Text style={styles.eachItemLabel}>24h</Text>
-                    <Text
-                      style={[
-                        styles.usdAndPercentageText,
-                        value === 'coins'
-                          ? trend.item.data.price_change_percentage_24h.usd < 0
-                            ? styles.red
-                            : styles.green
-                          : trend.data.floor_price < 0
-                          ? styles.red
-                          : styles.green,
-                      ]}>
-                      {value === 'coins'
-                        ? Number(
-                            trend.item.data.price_change_percentage_24h.usd
-                              .toString()
-                              .substring(0, 5),
-                          ) + '%'
-                        : Number(
-                            trend.data.floor_price_in_usd_24h_percentage_change
-                              .toString()
-                              .substring(0, 5),
-                          ) + '%'}
-                    </Text>
-                  </View>
-                  <View style={styles.eachItemView}>
-                    <Text style={styles.eachItemLabel}>Marketcap</Text>
-                    <Text style={styles.usdAndPercentageText}>
-                      {value === 'coins' ? (
-                        trend.item.data.market_cap
-                      ) : (
-                        <Text>No data</Text>
-                      )}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-            );
-          })}
+          {filteredTrends?.map((trend, index) => (
+            <View key={index}>
+              {value === 'coins' ? (
+                <TrendCoins trend={trend} index={index} />
+              ) : (
+                <TrendNfts trend={trend} index={index} />
+              )}
+            </View>
+          ))}
         </View>
       </ScrollView>
     </View>
