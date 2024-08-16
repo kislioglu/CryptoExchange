@@ -5,7 +5,7 @@ import {useNavigation} from '@react-navigation/native';
 export default function TrendCoins({trend}) {
   const navigation = useNavigation();
   const handleOnPress = trend => {
-    navigation.navigate('CoinCurrencyGraphics', {selectedCoin: trend});
+    navigation.navigate('CoinFirstLookInformations', {selectedCoin: trend});
   };
 
   return (
