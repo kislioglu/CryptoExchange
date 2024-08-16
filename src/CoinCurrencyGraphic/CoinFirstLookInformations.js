@@ -1,82 +1,135 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
-import React from 'react';
+import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import CoinCurrencyGraphics from './CoinCurrencyGraphics';
+import CryptoRequest from '../../services/ApiRequests';
+import Graphics from './Graphics';
 
-export default function CoinFirstLookInformations({selectedCoin}) {
+export default function CoinFirstLookInformations({route}) {
+  const coinData = CryptoRequest();
+  const [coinsInfo, setCoinsInfo] = useState();
+  const [spark, setSpark] = useState([]);
+  const [matchedCoin, setMatchedCoin] = useState();
+  const {selectedCoin} = route.params;
+  useEffect(() => {
+    if (coinData) {
+      const findMatchedCoin = coinData.find(
+        obj => obj.id === selectedCoin?.item.id,
+      );
+      if (findMatchedCoin) {
+        setMatchedCoin(findMatchedCoin);
+      }
+    }
+  }, [coinData, selectedCoin?.item.id]);
+
+  useEffect(() => {
+    if (matchedCoin) {
+      setCoinsInfo(matchedCoin);
+    }
+  }, [matchedCoin]);
+
+  useEffect(() => {
+    if (
+      coinsInfo &&
+      coinsInfo.sparkline_in_7d &&
+      coinsInfo.sparkline_in_7d.price
+    ) {
+      const sparklineData = coinsInfo.sparkline_in_7d.price.map(
+        (price, index) => ({
+          x: index,
+          y: price,
+        }),
+      );
+      setSpark(sparklineData);
+    }
+  }, [coinsInfo]);
+
+  const isValidData =
+    spark.length > 0 && spark.every(d => !isNaN(d.x) && !isNaN(d.y));
   return (
-    <View style={styles.container}>
-      <View style={styles.coinNameAndPriceView}>
-        <Text style={styles.selectedCoinAndCurrencyText}>
-          {selectedCoin?.symbol.toUpperCase()}/USDT
-        </Text>
-        <Text style={{fontWeight: 'bold'}}>{selectedCoin?.name}</Text>
-        <View style={styles.pricesView}>
-          <Text
-            style={[
-              styles.colorfulPriceText,
-              selectedCoin?.high_24h < selectedCoin?.low_24h
-                ? {color: '#FF6838'}
-                : {color: '#58BD7D'},
-            ]}>
-            {selectedCoin?.current_price}
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <View style={styles.subContainerView}>
+        <View style={styles.coinNameAndPriceView}>
+          <Text style={styles.selectedCoinAndCurrencyText}>
+            {coinsInfo?.symbol?.toUpperCase()}/USDT
           </Text>
-          <View style={styles.fixedColorPriceView}>
-            <Image
-              style={styles.dollarImg}
-              source={require('../../assets/dollar.png')}
-            />
-            <Text style={styles.fixedColorPriceText}>
-              {selectedCoin?.current_price}
+          <Text style={{fontWeight: 'bold'}}>{coinsInfo?.name}</Text>
+          <View style={styles.pricesView}>
+            <Text
+              style={[
+                styles.colorfulPriceText,
+                coinsInfo?.high_24h < coinsInfo?.low_24h
+                  ? {color: '#FF6838'}
+                  : {color: '#58BD7D'},
+              ]}>
+              {coinsInfo?.current_price}
+            </Text>
+            <View style={styles.fixedColorPriceView}>
+              <Image
+                style={styles.dollarImg}
+                source={require('../../assets/dollar.png')}
+              />
+              <Text style={styles.fixedColorPriceText}>
+                {coinsInfo?.current_price}
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View style={styles.priceChangesView}>
+          <View style={styles.eachChangesView}>
+            <View style={styles.imageAndChangeDurationView}>
+              <Image source={require('../../assets/clock.png')} />
+              <Text>24h change</Text>
+            </View>
+            <View style={{flexDirection: 'row', gap: 10}}>
+              <Text style={{color: '#000', fontWeight: '500'}}>
+                {coinsInfo?.price_change_24h?.toString()?.substring(0, 8)}
+              </Text>
+              <Text style={{color: '#000', fontWeight: '500'}}>
+                {coinsInfo?.price_change_percentage_24h
+                  ?.toString()
+                  ?.substring(0, 5)}
+                %
+              </Text>
+            </View>
+          </View>
+          <View style={styles.eachChangesView}>
+            <View style={styles.imageAndChangeDurationView}>
+              <Image source={require('../../assets/upArrow.png')} />
+              <Text>24h high</Text>
+            </View>
+            <Text style={{color: '#000', fontWeight: '500'}}>
+              {coinsInfo?.high_24h}
+            </Text>
+          </View>
+          <View style={styles.eachChangesView}>
+            <View style={styles.imageAndChangeDurationView}>
+              <Image source={require('../../assets/downArrow.png')} />
+              <Text>24h low</Text>
+            </View>
+            <Text style={{color: '#000', fontWeight: '500'}}>
+              {coinsInfo?.low_24h}
             </Text>
           </View>
         </View>
       </View>
-      <View style={styles.priceChangesView}>
-        <View style={styles.eachChangesView}>
-          <View style={styles.imageAndChangeDurationView}>
-            <Image source={require('../../assets/clock.png')} />
-            <Text>24h change</Text>
-          </View>
-          <View style={{flexDirection: 'row', gap: 10}}>
-            <Text style={{color: '#000', fontWeight: '500'}}>
-              {selectedCoin?.price_change_24h.toString().substring(0, 7)}
-            </Text>
-            <Text style={{color: '#000', fontWeight: '500'}}>
-              {selectedCoin?.price_change_percentage_24h
-                .toString()
-                .substring(0, 5)}
-              %
-            </Text>
-          </View>
-        </View>
-        <View style={styles.eachChangesView}>
-          <View style={styles.imageAndChangeDurationView}>
-            <Image source={require('../../assets/upArrow.png')} />
-            <Text>24h high</Text>
-          </View>
-          <Text style={{color: '#000', fontWeight: '500'}}>
-            {selectedCoin?.high_24h}
-          </Text>
-        </View>
-        <View style={styles.eachChangesView}>
-          <View style={styles.imageAndChangeDurationView}>
-            <Image source={require('../../assets/downArrow.png')} />
-            <Text>24h low</Text>
-          </View>
-          <Text style={{color: '#000', fontWeight: '500'}}>
-            {selectedCoin?.low_24h}
-          </Text>
-        </View>
+      <View>
+        <Graphics isValidData={isValidData} spark={spark} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
+    marginTop: 20,
+  },
+  subContainerView: {
     width: '90%',
+    height: 350,
     backgroundColor: '#fff',
-    marginTop: 25,
     borderRadius: 10,
+    marginLeft: 20,
   },
   coinNameAndPriceView: {
     gap: 10,
