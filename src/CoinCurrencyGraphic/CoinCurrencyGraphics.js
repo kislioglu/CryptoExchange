@@ -1,7 +1,6 @@
 import {View, Text, Image} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {StyleSheet} from 'react-native';
-import CryptoRequest from '../../services/ApiRequests';
 import {
   Chart,
   Line,
@@ -9,53 +8,10 @@ import {
   HorizontalAxis,
   VerticalAxis,
 } from 'react-native-responsive-linechart';
-import CoinFirstLookInformations from './CoinFirstLookInformations';
 
-export default function CoinCurrencyGraphics({route}) {
-  const coinData = CryptoRequest();
-  const [coinsInfo, setCoinsInfo] = useState();
-  const [spark, setSpark] = useState([]);
-  const [matchedCoin, setMatchedCoin] = useState();
-  const {selectedCoin} = route.params;
-  useEffect(() => {
-    if (coinData) {
-      const findMatchedCoin = coinData.find(
-        obj => obj.id === selectedCoin?.item.id,
-      );
-      if (findMatchedCoin) {
-        setMatchedCoin(findMatchedCoin);
-      }
-    }
-  }, [coinData, selectedCoin?.item.id]);
-
-  useEffect(() => {
-    if (matchedCoin) {
-      setCoinsInfo(matchedCoin);
-    }
-  }, [matchedCoin]);
-
-  useEffect(() => {
-    if (
-      coinsInfo &&
-      coinsInfo.sparkline_in_7d &&
-      coinsInfo.sparkline_in_7d.price
-    ) {
-      const sparklineData = coinsInfo.sparkline_in_7d.price.map(
-        (price, index) => ({
-          x: index,
-          y: price,
-        }),
-      );
-      setSpark(sparklineData);
-    }
-  }, [coinsInfo]);
-
-  const isValidData =
-    spark.length > 0 && spark.every(d => !isNaN(d.x) && !isNaN(d.y));
+export default function CoinCurrencyGraphics({isValidData, spark}) {
   return (
     <View style={styles.container}>
-      <CoinFirstLookInformations selectedCoin={coinsInfo} />
-
       {isValidData && (
         <Chart
           style={{height: 400, width: '90%'}}
@@ -107,10 +63,10 @@ export default function CoinCurrencyGraphics({route}) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f1f2f4',
+    marginBottom: 20,
   },
   text: {
     fontSize: 20,
