@@ -9,6 +9,7 @@ import SignIn from '../Login_Signup/SignIn';
 import ForgotPassword from '../Login_Signup/ForgotPassword';
 import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPrices';
 import CoinCurrencyGraphics from '../CoinCurrencyGraphic/CoinCurrencyGraphics';
+import CoinFirstLookInformations from '../CoinCurrencyGraphic/CoinFirstLookInformations';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -52,8 +53,8 @@ export default function Navigation() {
         />
         <Stack.Screen
           options={{headerShown: false}}
-          name="CoinCurrencyGraphics"
-          component={CoinCurrencyGraphics}
+          name="CoinFirstLookInformations"
+          component={CoinFirstLookInformations}
         />
       </Stack.Navigator>
     </NavigationContainer>
