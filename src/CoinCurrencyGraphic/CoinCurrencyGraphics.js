@@ -10,13 +10,30 @@ import {
 } from 'react-native-responsive-linechart';
 
 export default function CoinCurrencyGraphics({isValidData, spark}) {
+  const tickCount = 7;
+  const stepSize = Math.floor(spark.length / tickCount);
+  const today = new Date();
+  const last7Days = [];
+
+  for (let i = 6; i >= 0; i--) {
+    const day = new Date(today);
+    day.setDate(today.getDate() - i);
+    last7Days.push(day.toDateString());
+  }
+
   return (
     <View style={styles.container}>
       {isValidData && (
         <Chart
-          style={{height: 400, width: '90%'}}
+          style={{
+            backgroundColor: '#fff',
+            height: 450,
+            width: '90%',
+            marginTop: 15,
+            borderRadius: 10,
+          }}
           data={spark}
-          padding={{left: 40, bottom: 20, right: 20, top: 20}}
+          padding={{left: 40, bottom: 40, right: 20, top: 20}}
           xDomain={{
             min: Math.min(...spark.map(d => d.x)),
             max: Math.max(...spark.map(d => d.x)),
@@ -30,7 +47,21 @@ export default function CoinCurrencyGraphics({isValidData, spark}) {
             tickCount={30}
             theme={{labels: {formatter: v => v.toFixed(1)}}}
           />
-          <HorizontalAxis tickCount={6} />
+          <HorizontalAxis
+            tickCount={tickCount}
+            theme={{
+              labels: {
+                formatter: value => {
+                  const index = Math.floor(value / stepSize) % last7Days.length;
+                  return last7Days[index];
+                },
+                label: {
+                  color: '#000',
+                  dy: -24,
+                },
+              },
+            }}
+          />
           <Area
             theme={{
               gradient: {
@@ -41,8 +72,8 @@ export default function CoinCurrencyGraphics({isValidData, spark}) {
           />
           <Line
             theme={{
-              stroke: {color: '#ffa502', width: 5},
-              scatter: {default: {width: 4, height: 4, rx: 2}},
+              stroke: {color: '#ffa502', width: 3},
+              scatter: {default: {width: 3, height: 3, rx: 2}},
             }}
           />
         </Chart>
@@ -52,7 +83,7 @@ export default function CoinCurrencyGraphics({isValidData, spark}) {
           <Image source={require('../../assets/sorry.png')} />
           <Text style={styles.noDataText}>
             Can not reach data for selected coin. Sorry about that. The api
-            which i use for this app doesn't include all coins. Selected coin
+            which I use for this app doesn't include all coins. Selected coin
             listed on the trend coins but there is no market data for it.
           </Text>
         </View>
@@ -66,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f1f2f4',
-    marginBottom: 20,
+    marginBottom: 5,
   },
   text: {
     fontSize: 20,
