@@ -6,7 +6,7 @@ export default function ChartTrades() {
   const [tradesData, setTradesData] = useState([]);
 
   useEffect(() => {
-    setTradesData(marketTradesStaticData); // Initial load of data
+    setTradesData(marketTradesStaticData);
   }, []);
 
   const reverseHandle = () => {
