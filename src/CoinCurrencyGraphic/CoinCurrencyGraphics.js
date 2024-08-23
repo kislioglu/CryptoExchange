@@ -44,7 +44,7 @@ export default function CoinCurrencyGraphics({isValidData, spark}) {
           }}
           viewport={{size: {width: 83}}}>
           <VerticalAxis
-            tickCount={30}
+            tickCount={20}
             theme={{labels: {formatter: v => v.toFixed(1)}}}
           />
           <HorizontalAxis
