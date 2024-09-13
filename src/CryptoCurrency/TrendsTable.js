@@ -43,7 +43,7 @@ export default function TrendsTable() {
       </View>
 
       <ScrollView style={styles.dataWrapper}>
-        <View style={{gap: 20}}>
+        <View style={{gap: 20, zIndex: 1}}>
           {filteredTrends?.map((trend, index) => (
             <View key={index}>
               {value === 'coins' ? (
@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.77,
     shadowOffset: {width: 3, height: 6},
     shadowRadius: 10,
-    elevation: 3,
+    elevation: 10,
+    zIndex: 10,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
     marginBottom: 20,
@@ -92,6 +93,7 @@ const styles = StyleSheet.create({
   },
   dataWrapper: {
     marginTop: 5,
+    zIndex: 1,
   },
   itemNameAndImg: {
     width: '90%',
