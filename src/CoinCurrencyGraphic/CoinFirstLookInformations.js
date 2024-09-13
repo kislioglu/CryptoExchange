@@ -1,8 +1,16 @@
-import {View, Text, StyleSheet, Image, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import CoinCurrencyGraphics from './CoinCurrencyGraphics';
 import CryptoRequest from '../../services/ApiRequests';
 import Graphics from './Graphics';
+import BuyModal from './Graphics/Modals/BuyModal';
+import SellModal from './Graphics/Modals/SellModal';
 
 export default function CoinFirstLookInformations({route}) {
   const coinData = CryptoRequest();
@@ -10,6 +18,9 @@ export default function CoinFirstLookInformations({route}) {
   const [spark, setSpark] = useState([]);
   const [matchedCoin, setMatchedCoin] = useState();
   const {selectedCoin} = route.params;
+  const [isBuyModalVisible, setBuyModalVisible] = useState(false);
+  const [isSellModalVisible, setSellModalVisible] = useState(false);
+
   useEffect(() => {
     if (coinData) {
       const findMatchedCoin = coinData.find(
@@ -45,84 +56,119 @@ export default function CoinFirstLookInformations({route}) {
 
   const isValidData =
     spark.length > 0 && spark.every(d => !isNaN(d.x) && !isNaN(d.y));
+
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
-      <View style={styles.subContainerView}>
-        <View style={styles.coinNameAndPriceView}>
-          <Text style={styles.selectedCoinAndCurrencyText}>
-            {coinsInfo?.symbol?.toUpperCase()}/USDT
-          </Text>
-          <Text style={{fontWeight: 'bold'}}>{coinsInfo?.name}</Text>
-          <View style={styles.pricesView}>
-            <Text
-              style={[
-                styles.colorfulPriceText,
-                coinsInfo?.high_24h < coinsInfo?.low_24h
-                  ? {color: '#FF6838'}
-                  : {color: '#58BD7D'},
-              ]}>
-              {coinsInfo?.current_price}
+    <View style={styles.container}>
+      {/* Scrollable content */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={styles.scrollContainer}>
+        <View style={styles.subContainerView}>
+          <View style={styles.coinNameAndPriceView}>
+            <Text style={styles.selectedCoinAndCurrencyText}>
+              {coinsInfo?.symbol?.toUpperCase()}/USDT
             </Text>
-            <View style={styles.fixedColorPriceView}>
-              <Image
-                style={styles.dollarImg}
-                source={require('../../assets/dollar.png')}
-              />
-              <Text style={styles.fixedColorPriceText}>
+            <Text style={{fontWeight: 'bold'}}>{coinsInfo?.name}</Text>
+            <View style={styles.pricesView}>
+              <Text
+                style={[
+                  styles.colorfulPriceText,
+                  coinsInfo?.high_24h < coinsInfo?.low_24h
+                    ? {color: '#FF6838'}
+                    : {color: '#58BD7D'},
+                ]}>
                 {coinsInfo?.current_price}
               </Text>
+              <View style={styles.fixedColorPriceView}>
+                <Image
+                  style={styles.dollarImg}
+                  source={require('../../assets/dollar.png')}
+                />
+                <Text style={styles.fixedColorPriceText}>
+                  {coinsInfo?.current_price}
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View style={styles.priceChangesView}>
+            <View style={styles.eachChangesView}>
+              <View style={styles.imageAndChangeDurationView}>
+                <Image source={require('../../assets/clock.png')} />
+                <Text>24h change</Text>
+              </View>
+              <View style={{flexDirection: 'row', gap: 10}}>
+                <Text style={{color: '#000', fontWeight: '500'}}>
+                  {coinsInfo?.price_change_24h?.toString()?.substring(0, 8)}
+                </Text>
+                <Text style={{color: '#000', fontWeight: '500'}}>
+                  {coinsInfo?.price_change_percentage_24h
+                    ?.toString()
+                    ?.substring(0, 5)}
+                  %
+                </Text>
+              </View>
+            </View>
+            <View style={styles.eachChangesView}>
+              <View style={styles.imageAndChangeDurationView}>
+                <Image source={require('../../assets/upArrow.png')} />
+                <Text>24h high</Text>
+              </View>
+              <Text style={{color: '#000', fontWeight: '500'}}>
+                {coinsInfo?.high_24h}
+              </Text>
+            </View>
+            <View style={styles.eachChangesView}>
+              <View style={styles.imageAndChangeDurationView}>
+                <Image source={require('../../assets/downArrow.png')} />
+                <Text>24h low</Text>
+              </View>
+              <Text style={{color: '#000', fontWeight: '500'}}>
+                {coinsInfo?.low_24h}
+              </Text>
             </View>
           </View>
         </View>
-        <View style={styles.priceChangesView}>
-          <View style={styles.eachChangesView}>
-            <View style={styles.imageAndChangeDurationView}>
-              <Image source={require('../../assets/clock.png')} />
-              <Text>24h change</Text>
-            </View>
-            <View style={{flexDirection: 'row', gap: 10}}>
-              <Text style={{color: '#000', fontWeight: '500'}}>
-                {coinsInfo?.price_change_24h?.toString()?.substring(0, 8)}
-              </Text>
-              <Text style={{color: '#000', fontWeight: '500'}}>
-                {coinsInfo?.price_change_percentage_24h
-                  ?.toString()
-                  ?.substring(0, 5)}
-                %
-              </Text>
-            </View>
-          </View>
-          <View style={styles.eachChangesView}>
-            <View style={styles.imageAndChangeDurationView}>
-              <Image source={require('../../assets/upArrow.png')} />
-              <Text>24h high</Text>
-            </View>
-            <Text style={{color: '#000', fontWeight: '500'}}>
-              {coinsInfo?.high_24h}
-            </Text>
-          </View>
-          <View style={styles.eachChangesView}>
-            <View style={styles.imageAndChangeDurationView}>
-              <Image source={require('../../assets/downArrow.png')} />
-              <Text>24h low</Text>
-            </View>
-            <Text style={{color: '#000', fontWeight: '500'}}>
-              {coinsInfo?.low_24h}
-            </Text>
-          </View>
+        <View>
+          <Graphics isValidData={isValidData} spark={spark} />
         </View>
+      </ScrollView>
+
+      {/* Buy/Sell section at the bottom */}
+      <View style={styles.buySellContainer}>
+        <TouchableOpacity
+          style={styles.buyButton}
+          onPress={() => setBuyModalVisible(true)}>
+          <Text style={styles.buttonText}>Buy</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.sellButton}
+          onPress={() => setSellModalVisible(true)}>
+          <Text style={styles.buttonText}>Sell</Text>
+        </TouchableOpacity>
       </View>
-      <View>
-        <Graphics isValidData={isValidData} spark={spark} />
-      </View>
-    </ScrollView>
+
+      {/* Modal for Buy/Sell */}
+      <BuyModal
+        isBuyModalVisible={isBuyModalVisible}
+        setBuyModalVisible={setBuyModalVisible}
+        coinsInfo={coinsInfo}
+      />
+      <SellModal
+        isSellModalVisible={isSellModalVisible}
+        setSellModalVisible={setSellModalVisible}
+        coinsInfo={coinsInfo}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    marginTop: 20,
+    flex: 1,
+  },
+  scrollContainer: {
+    flex: 1,
+    marginBottom: 55,
   },
   subContainerView: {
     width: '90%',
@@ -177,5 +223,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 5,
+  },
+  buySellContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderColor: '#e0e0e0',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+  },
+  buyButton: {
+    backgroundColor: '#58BD7D',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+  sellButton: {
+    backgroundColor: '#FF6838',
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
