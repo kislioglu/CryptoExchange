@@ -242,15 +242,18 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 30,
+    width: '40%',
   },
   sellButton: {
     backgroundColor: '#FF6838',
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 30,
+    width: '40%',
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
