@@ -4,8 +4,10 @@ import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function ContactUs() {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.captionView}>
@@ -37,7 +39,7 @@ export default function ContactUs() {
             style={styles.cardImg}
             source={require('../../../assets/card-pic-2.png')}
           />
-          <Text style={styles.coreText}>Core Value 01</Text>
+          <Text style={styles.coreText}>Core Value 02</Text>
           <Text style={styles.explanationText}>
             We realize ideas from simple to complex, everything becomes easy to
             use and reach the most potential customers.
@@ -48,7 +50,7 @@ export default function ContactUs() {
             style={styles.cardImg}
             source={require('../../../assets/card-pic-3.png')}
           />
-          <Text style={styles.coreText}>Core Value 01</Text>
+          <Text style={styles.coreText}>Core Value 03</Text>
           <Text style={styles.explanationText}>
             We realize ideas from simple to complex, everything becomes easy to
             use and reach the most potential customers.
@@ -56,7 +58,9 @@ export default function ContactUs() {
         </View>
       </ScrollView>
       <View style={styles.contactUsView}>
-        <TouchableOpacity style={styles.contactUsButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ContactUsContent')}
+          style={styles.contactUsButton}>
           <Text style={styles.contactUsText}>Contact Us</Text>
         </TouchableOpacity>
       </View>
