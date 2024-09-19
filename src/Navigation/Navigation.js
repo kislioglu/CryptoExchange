@@ -9,6 +9,7 @@ import SignIn from '../Login_Signup/SignIn';
 import ForgotPassword from '../Login_Signup/ForgotPassword';
 import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPrices';
 import CoinFirstLookInformations from '../CoinCurrencyGraphic/CoinFirstLookInformations';
+import ContactUsContent from '../HomeScreen/ContactUs/ContactUsContent';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -24,6 +25,11 @@ export default function Navigation() {
           options={{headerShown: false}}
           name="Home"
           component={Home}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="ContactUsContent"
+          component={ContactUsContent}
         />
         <Stack.Screen
           options={{headerShown: false}}
