@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 export default function PhoneNmbr() {
   const [phone, setPhone] = useState('');
@@ -48,7 +48,7 @@ export default function PhoneNmbr() {
               style={styles.phoneNmbrInput}
               placeholderTextColor={'#777e90'}
               placeholder="Phone address"
-              keyboardType="Phone-address"
+              keyboardType="numeric"
               autoCapitalize="none"
               value={phone}
               onChangeText={text => setPhone(text)}
