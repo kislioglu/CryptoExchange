@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import React from 'react';
 import FAQ from './FAQ';
+import FooterNav from '../Footer/FooterNav';
+import SupportTopic from './SupportTopic';
 
 export default function ContactUsContent() {
   return (
@@ -45,6 +47,12 @@ export default function ContactUsContent() {
       </View>
       <View>
         <FAQ />
+      </View>
+      <View>
+        <SupportTopic />
+      </View>
+      <View>
+        <FooterNav />
       </View>
     </ScrollView>
   );
