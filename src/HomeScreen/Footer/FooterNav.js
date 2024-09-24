@@ -2,55 +2,32 @@ import React, {useState} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import Animated, {
-  Easing,
   useSharedValue,
   useAnimatedStyle,
-  withDelay,
   withTiming,
 } from 'react-native-reanimated';
 import Contact from './Contact';
 import Newsletter from './Newsletter';
 import Copyright from './Copyright';
+import {useNavigation} from '@react-navigation/native';
 
 export default function FooterNav() {
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState([
-    {label: 'Exchange', value: 'exchange'},
-    {label: 'Buy Crypto', value: 'buyCrypto'},
-    {label: 'Market', value: 'market'},
-    {label: 'Learn Crypto', value: 'learnCrypto'},
-    {label: 'Contact', value: 'contact'},
-  ]);
+  const navigation = useNavigation();
+  const [isExpanded, setIsExpanded] = useState(false);
+  const height = useSharedValue(0);
 
-  const opacityValues = items.map(() => useSharedValue(0));
-
-  const animatedStyles = opacityValues.map(opacity =>
-    useAnimatedStyle(() => ({
-      opacity: opacity.value,
-    })),
-  );
-
-  const handleOpen = () => {
-    setOpen(!open);
-    if (!open) {
-      opacityValues.forEach((opacity, index) => {
-        opacity.value = withDelay(
-          index * 100,
-          withTiming(1, {
-            duration: 300,
-            easing: Easing.out(Easing.quad),
-          }),
-        );
-      });
-    } else {
-      opacityValues.forEach(opacity => {
-        opacity.value = withTiming(0, {
-          duration: 300,
-          easing: Easing.out(Easing.quad),
-        });
-      });
-    }
+  const toggleExpand = () => {
+    setIsExpanded(!isExpanded);
+    height.value = isExpanded
+      ? withTiming(0, {duration: 500})
+      : withTiming(210, {duration: 500});
   };
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      height: height.value,
+    };
+  });
 
   return (
     <View>
@@ -66,22 +43,45 @@ export default function FooterNav() {
         <View>
           <TouchableOpacity
             style={styles.footerNavBtn}
-            onPress={() => handleOpen()}>
+            onPress={() => toggleExpand()}>
             <Text style={styles.footerNavText}>FOOTER NAV</Text>
             <Image source={require('../../../assets/down.png')} />
           </TouchableOpacity>
         </View>
-        {open && (
+        {isExpanded && (
           <View>
-            {items.map((item, index) => (
-              <Animated.View
-                key={index}
-                style={[styles.item, animatedStyles[index]]}>
-                <TouchableOpacity>
-                  <Text style={styles.itemBtnText}>{item.label}</Text>
-                </TouchableOpacity>
-              </Animated.View>
-            ))}
+            <Animated.View style={[styles.item, animatedStyle]}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('TodaysTrendCurrencyPrices')
+                }>
+                <Text style={styles.itemBtnText}>Exchange</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('TodaysTrendCurrencyPrices')
+                }>
+                <Text style={styles.itemBtnText}>Buy Crypto</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('TodaysTrendCurrencyPrices')
+                }>
+                <Text style={styles.itemBtnText}>Market</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('ContactUsContent')
+                }>
+                <Text style={styles.itemBtnText}>Learn Crypto</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('ContactUsContent')
+                }>
+                <Text style={styles.itemBtnText}>Contact</Text>
+              </TouchableOpacity>
+            </Animated.View>
           </View>
         )}
       </View>
@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     width: '90%',
     marginLeft: 20,
+    gap: 20,
   },
   componyLogoAndName: {
     flexDirection: 'row',
