@@ -1,7 +1,9 @@
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 
 export default function JoinUs() {
+  const navigation = useNavigation();
   return (
     <View style={styles.componentView}>
       <View style={styles.logoAndTextsView}>
@@ -32,7 +34,10 @@ export default function JoinUs() {
           Stack solves business problems from simple to complex.
         </Text>
       </View>
-      <TouchableOpacity activeOpacity={0.7} style={styles.joinButton}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Signup')}
+        activeOpacity={0.7}
+        style={styles.joinButton}>
         <Text style={styles.joinButtonText}>Join now</Text>
       </TouchableOpacity>
     </View>
