@@ -12,10 +12,10 @@ export default function JoinUs() {
             style={styles.logoImg}
             source={require('../../../assets/logo.png')}
           />
-          <Text style={styles.companyNameText}>Coiner</Text>
+          <Text style={styles.companyNameText}>Bitcloud</Text>
         </View>
         <Text style={styles.captionText}>
-          Stay in the know on crypto with Coiner
+          Stay in the know on crypto with Bitcloud
         </Text>
         <Text style={styles.lowerCaptionText}>
           A creative agency that lead and inspire

@@ -36,7 +36,7 @@ export default function FooterNav() {
           style={styles.logoImg}
           source={require('../../../assets/logo.png')}
         />
-        <Text style={styles.companyNameText}>Coiner</Text>
+        <Text style={styles.companyNameText}>Bitcloud</Text>
       </View>
 
       <View>

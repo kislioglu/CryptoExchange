@@ -24,7 +24,7 @@ export default function SignIn() {
             style={styles.companyLogo}
             source={require('../../assets/logo.png')}
           />
-          <Text style={styles.captionText}>Coiner</Text>
+          <Text style={styles.captionText}>Bitcloud</Text>
         </View>
         <View style={styles.loginRedirectView}>
           <Text style={styles.haveAnAccountText}>Don't have an account?</Text>
@@ -34,7 +34,7 @@ export default function SignIn() {
         </View>
       </View>
       <View style={styles.ensureView}>
-        <Text style={styles.captionText}>Sign in to Coiner</Text>
+        <Text style={styles.captionText}>Sign in to Bitcloud</Text>
         <Text style={styles.ensureText}>
           Please ensure you are visiting the correct url.
         </Text>

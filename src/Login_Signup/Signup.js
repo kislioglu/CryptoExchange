@@ -57,7 +57,7 @@ export default function Signup() {
             style={styles.companyLogo}
             source={require('../../assets/logo.png')}
           />
-          <Text style={styles.companyName}>Coiner</Text>
+          <Text style={styles.companyName}>Bitcloud</Text>
         </View>
         <View style={styles.loginRedirectView}>
           <Text style={styles.haveAnAccountText}>Already have an account?</Text>

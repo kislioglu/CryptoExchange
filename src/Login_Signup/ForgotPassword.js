@@ -31,7 +31,7 @@ export default function ForgotPassword() {
             style={styles.companyLogo}
             source={require('../../assets/logo.png')}
           />
-          <Text style={styles.captionText}>Coiner</Text>
+          <Text style={styles.captionText}>Bitcloud</Text>
         </View>
         <View style={styles.loginRedirectView}>
           <Text style={styles.haveAnAccountText}>Don't have an account?</Text>
