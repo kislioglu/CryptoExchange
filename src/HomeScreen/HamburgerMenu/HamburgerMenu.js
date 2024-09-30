@@ -32,7 +32,9 @@ export default function HamburgerMenu() {
                 <Image source={require('../../../assets/creditCard.png')} />
                 <Text style={styles.subBtnText}>Credit card</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.subBtn}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('BankDeposit')}
+                style={styles.subBtn}>
                 <Image source={require('../../../assets/walletIcon.png')} />
                 <Text style={styles.subBtnText}>Bank deposit</Text>
               </TouchableOpacity>
