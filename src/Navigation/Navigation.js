@@ -9,6 +9,7 @@ import ForgotPassword from '../Login_Signup/ForgotPassword';
 import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPrices';
 import CoinFirstLookInformations from '../CoinCurrencyGraphic/CoinFirstLookInformations';
 import ContactUsContent from '../HomeScreen/ContactUs/ContactUsContent';
+import BankDeposit from '../HomeScreen/HamburgerMenu/DepositTypes/BankDeposit';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -54,6 +55,11 @@ export default function Navigation() {
           options={{headerShown: false}}
           name="CoinFirstLookInformations"
           component={CoinFirstLookInformations}
+        />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="BankDeposit"
+          component={BankDeposit} 
         />
       </Stack.Navigator>
     </NavigationContainer>
