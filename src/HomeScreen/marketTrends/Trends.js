@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 10,
     fontWeight: 'bold',
+    color: '#777e90',
   },
   moreBtn: {
     borderRadius: 20,

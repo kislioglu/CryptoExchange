@@ -68,7 +68,9 @@ export default function CoinFirstLookInformations({route}) {
             <Text style={styles.selectedCoinAndCurrencyText}>
               {coinsInfo?.symbol?.toUpperCase()}/USDT
             </Text>
-            <Text style={{fontWeight: 'bold'}}>{coinsInfo?.name}</Text>
+            <Text style={{fontWeight: 'bold', color: '#777e90'}}>
+              {coinsInfo?.name}
+            </Text>
             <View style={styles.pricesView}>
               <Text
                 style={[
@@ -94,7 +96,7 @@ export default function CoinFirstLookInformations({route}) {
             <View style={styles.eachChangesView}>
               <View style={styles.imageAndChangeDurationView}>
                 <Image source={require('../../assets/clock.png')} />
-                <Text>24h change</Text>
+                <Text style={{color: '#777e90'}}>24h change</Text>
               </View>
               <View style={{flexDirection: 'row', gap: 10}}>
                 <Text style={{color: '#000', fontWeight: '500'}}>
@@ -111,7 +113,7 @@ export default function CoinFirstLookInformations({route}) {
             <View style={styles.eachChangesView}>
               <View style={styles.imageAndChangeDurationView}>
                 <Image source={require('../../assets/upArrow.png')} />
-                <Text>24h high</Text>
+                <Text style={{color: '#777e90'}}>24h high</Text>
               </View>
               <Text style={{color: '#000', fontWeight: '500'}}>
                 {coinsInfo?.high_24h}
@@ -120,7 +122,7 @@ export default function CoinFirstLookInformations({route}) {
             <View style={styles.eachChangesView}>
               <View style={styles.imageAndChangeDurationView}>
                 <Image source={require('../../assets/downArrow.png')} />
-                <Text>24h low</Text>
+                <Text style={{color: '#777e90'}}>24h low</Text>
               </View>
               <Text style={{color: '#000', fontWeight: '500'}}>
                 {coinsInfo?.low_24h}
@@ -207,6 +209,7 @@ const styles = StyleSheet.create({
   fixedColorPriceText: {
     fontSize: 14,
     fontWeight: 'bold',
+    color: '#777e90',
   },
   priceChangesView: {
     marginTop: 30,

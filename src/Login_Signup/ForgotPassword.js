@@ -71,7 +71,9 @@ export default function ForgotPassword() {
         <TouchableOpacity style={styles.LoginBtn}>
           <Text style={styles.LoginBtnText}>Continue</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={[styles.LoginBtn, {backgroundColor: '#fff'}]}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('SignIn')}
+          style={[styles.LoginBtn, {backgroundColor: '#fff'}]}>
           <Text style={[styles.LoginBtnText, {color: '#000'}]}>
             Nevermind, I got it
           </Text>
@@ -111,6 +113,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 10,
+    marginTop: 20,
   },
   haveAnAccountText: {
     fontWeight: 'bold',
@@ -132,6 +135,7 @@ const styles = StyleSheet.create({
     width: '85%',
     textAlign: 'center',
     fontWeight: '500',
+    color: '#777e90',
   },
   border: {
     borderBottomWidth: 2,
@@ -143,7 +147,7 @@ const styles = StyleSheet.create({
   inputCaption: {
     fontWeight: 'bold',
     color: '#b1b5c3',
-    marginBottom: 10,
+    marginBottom: 20,
   },
   inputView: {
     borderWidth: 2,
@@ -152,12 +156,14 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 5,
   },
   input: {
     paddingHorizontal: 10,
     fontWeight: '600',
     flex: 1,
     height: '100%',
+    color: '#777e90',
   },
   letterImg: {
     marginRight: 10,
@@ -173,6 +179,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 10,
   },
   LoginBtnText: {
     fontWeight: '600',

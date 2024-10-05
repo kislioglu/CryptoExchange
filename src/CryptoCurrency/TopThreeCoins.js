@@ -23,7 +23,7 @@ export default function TopThreeCoins() {
       horizontal
       showsHorizontalScrollIndicator={false}>
       {matched?.map((matcehdCoin, index) => (
-        <TouchableOpacity
+        <View
           activeOpacity={0.7}
           style={styles.topCoinsView}
           key={index}>
@@ -53,7 +53,7 @@ export default function TopThreeCoins() {
               {matcehdCoin.current_price}
             </Text>
           </View>
-        </TouchableOpacity>
+        </View>
       ))}
     </ScrollView>
   );
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
   },
   topCoinName: {
     fontWeight: '700',
+    color: '#777e90',
   },
   pricePercentage: {
     paddingHorizontal: 10,

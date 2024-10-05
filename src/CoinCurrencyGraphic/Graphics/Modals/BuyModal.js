@@ -69,11 +69,12 @@ export default function BuyModal({
             <View style={styles.AmountInputView}>
               <TextInput
                 style={styles.input}
-                placeholder="Limit"
+                placeholder="Price"
                 keyboardType="numeric"
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity style={styles.currencyType}>
-                <Text style={{fontWeight: 'bold'}}>USDT</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>USDT</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.AmountInputView}>
@@ -83,13 +84,14 @@ export default function BuyModal({
                 keyboardType="numeric"
                 value={value.toFixed(1)}
                 onChangeText={handleInputChange}
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity
                 style={[
                   styles.currencyType,
                   {borderLeftWidth: 1, paddingLeft: 10, borderColor: '#0045ea'},
                 ]}>
-                <Text style={{fontWeight: 'bold'}}>BTC</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>BTC</Text>
               </TouchableOpacity>
             </View>
             <Slider
@@ -108,9 +110,10 @@ export default function BuyModal({
                 style={styles.input}
                 placeholder="Total"
                 keyboardType="numeric"
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity style={styles.currencyType}>
-                <Text style={{fontWeight: 'bold'}}>BTC</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>BTC</Text>
               </TouchableOpacity>
             </View>
 
@@ -141,6 +144,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: '#777e90',
   },
   closeButton: {
     width: 26,
@@ -164,6 +168,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
+    color: '#777e90',
   },
   currencyType: {
     justifyContent: 'center',

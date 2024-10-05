@@ -20,7 +20,7 @@ export default function Signup() {
   const [hidePassword, setHidePassword] = useState(true);
   const [hideConfirmPassword, setHideConfirmPassword] = useState(true);
   const [isPasswordMatched, setIsPasswordMatched] = useState(false);
-  const [isSelected, setSelection] = useState(false);
+  const [isSelected, setSelection] = useState(true);
 
   const navigation = useNavigation();
 
@@ -169,6 +169,7 @@ export default function Signup() {
             style={styles.checkBox}
             value={isSelected}
             onValueChange={setSelection}
+            tintColors={{true: '#3772ff', false: '#b1b5c3'}}
           />
           <Text style={styles.text}>
             By signing up I agree that I'm 18 years of age or older, to the{' '}
@@ -296,6 +297,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     height: '100%',
+    color: '#000',
   },
   paswordInsideView: {
     flexDirection: 'row',

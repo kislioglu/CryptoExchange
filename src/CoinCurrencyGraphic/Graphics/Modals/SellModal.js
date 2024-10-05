@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Slider from '@react-native-community/slider';
 
 export default function SellModal({
@@ -69,9 +69,10 @@ export default function SellModal({
                 style={styles.input}
                 placeholder="Limit"
                 keyboardType="numeric"
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity style={styles.currencyType}>
-                <Text style={{fontWeight: 'bold'}}>USDT</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>USDT</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.AmountInputView}>
@@ -81,13 +82,14 @@ export default function SellModal({
                 keyboardType="numeric"
                 value={value.toFixed(1)}
                 onChangeText={handleInputChange}
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity
                 style={[
                   styles.currencyType,
                   {borderLeftWidth: 1, paddingLeft: 10, borderColor: '#0045ea'},
                 ]}>
-                <Text style={{fontWeight: 'bold'}}>BTC</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>BTC</Text>
               </TouchableOpacity>
             </View>
             <Slider
@@ -106,9 +108,10 @@ export default function SellModal({
                 style={styles.input}
                 placeholder="Total"
                 keyboardType="numeric"
+                placeholderTextColor={'#777e90'}
               />
               <TouchableOpacity style={styles.currencyType}>
-                <Text style={{fontWeight: 'bold'}}>BTC</Text>
+                <Text style={{fontWeight: 'bold', color: '#777e90'}}>BTC</Text>
               </TouchableOpacity>
             </View>
 
@@ -162,6 +165,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
+    color: '#777e90',
   },
   currencyType: {
     justifyContent: 'center',

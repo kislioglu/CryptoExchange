@@ -20,7 +20,7 @@ export default function Newsletter() {
   const handleChange = text => {
     setEmail(text);
     if (!validateEmail(text)) {
-      setError('Geçerli bir e-posta adresi giriniz');
+      setError('Please enter a valid email address.');
     } else {
       setError('');
     }
@@ -40,7 +40,8 @@ export default function Newsletter() {
           <View style={styles.textInputView}>
             <TextInput
               style={styles.input}
-              placeholder="E-posta adresinizi girin"
+              placeholder="Enter your email"
+              placeholderTextColor={'#777e90'}
               keyboardType="email-address"
               autoCapitalize="none"
               value={email}
@@ -53,7 +54,7 @@ export default function Newsletter() {
               />
             </TouchableOpacity>
           </View>
-          {error ? <Text style={styles.error}>{error}</Text> : null}
+          {email !== '' && error ? <Text style={styles.error}>{error}</Text> : null}
         </View>
       </View>
       <View style={styles.borderBottom} />
@@ -91,12 +92,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'space-between',
     paddingRight: 10,
-    marginBottom: 40,
   },
   input: {
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
+    color: '#777e90',
   },
   rightArrowView: {
     width: 30,
@@ -113,13 +114,12 @@ const styles = StyleSheet.create({
   },
   error: {
     color: 'red',
-    marginTop: 5,
   },
   borderBottom: {
     borderBottomWidth: 1,
     width: '90%',
     alignSelf: 'center',
-    // marginTop: 40,
     borderColor: '#e6e8ec',
+    marginTop: 30,
   },
 });

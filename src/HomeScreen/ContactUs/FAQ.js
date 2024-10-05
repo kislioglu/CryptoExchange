@@ -20,8 +20,7 @@ export default function FAQ() {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const height = useSharedValue(0);
 
-  const toggleExpand = (index) => {
-    
+  const toggleExpand = index => {
     if (expandedIndex === index) {
       setExpandedIndex(null);
       height.value = withTiming(0, {duration: 500});
@@ -54,40 +53,40 @@ export default function FAQ() {
         />
       </View>
 
-      {new Array(5).fill(null).map((_, index) => (
-        <View key={index}>
-          <TouchableOpacity
-            onPress={() => toggleExpand(index)}
-            style={styles.button}>
-            <Text style={styles.buttonText}>{index + 1}</Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                flex: 1,
-                marginLeft: 20,
-              }}>
-              <Text style={[styles.buttonText, {color: '#000'}]}>
-                How does it work
-              </Text>
-              <Image source={require('../../../assets/down.png')} />
-            </View>
-          </TouchableOpacity>
-          {expandedIndex === index ? (
-            <Animated.View style={[styles.textContainer, animatedStyle]}>
-              <Text style={styles.text}>
-                The Stacks series of products: Stacks: Landing Page Kit, Stacks:
-                Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a
-                production-ready library of stackable content blocks built in
-                React Native. Mix-and-match dozens of responsive elements to
-                quickly configure your favorite landing page layouts or hit the
-                ground running with 10 pre-built templates, all in light or dark
-                mode. "
-              </Text>
-            </Animated.View>
-          ) : null}
-        </View>
-      ))}
+      <View style={{marginTop: 25}}>
+        {new Array(5).fill(null).map((_, index) => (
+          <View key={index}>
+            <TouchableOpacity
+              onPress={() => toggleExpand(index)}
+              style={styles.button}>
+              <Text style={styles.buttonText}>{index + 1}</Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  flex: 1,
+                  marginLeft: 20,
+                }}>
+                <Text style={styles.buttonText}>How does it work</Text>
+                <Image source={require('../../../assets/down.png')} />
+              </View>
+            </TouchableOpacity>
+            {expandedIndex === index ? (
+              <Animated.View style={[styles.textContainer, animatedStyle]}>
+                <Text style={styles.text}>
+                  The Stacks series of products: Stacks: Landing Page Kit,
+                  Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a
+                  production-ready library of stackable content blocks built in
+                  React Native. Mix-and-match dozens of responsive elements to
+                  quickly configure your favorite landing page layouts or hit
+                  the ground running with 10 pre-built templates, all in light
+                  or dark mode. "
+                </Text>
+              </Animated.View>
+            ) : null}
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
   },
   dropDown: {
     width: '80%',
-    marginTop: 20,
+    marginTop: 35,
     borderColor: '#e6e8ec',
     borderWidth: 2,
     backgroundColor: '#fcfcfd',
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
     width: '80%',
     borderColor: '#e6e8ec',
     alignSelf: 'center',
-    marginTop: 20
+    marginTop: 20,
   },
   button: {
     padding: 10,
@@ -131,6 +130,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
+    color: '#000',
   },
   textContainer: {
     marginTop: 10,
@@ -145,5 +145,6 @@ const styles = StyleSheet.create({
     width: '80%',
     lineHeight: 24,
     letterSpacing: 0.3,
+    color: '#777e90',
   },
 });

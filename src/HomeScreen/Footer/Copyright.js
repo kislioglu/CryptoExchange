@@ -49,17 +49,18 @@ export default function Copyright() {
 
 const styles = StyleSheet.create({
   container: {
-    top: 50,
+    top:35,
     height: 200,
   },
   copyrightText: {
     alignSelf: 'center',
-    fontWeight: '500',
+    fontWeight: '400',
+    color: '#777e90',
   },
   socialsView: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 30,
+    marginTop: 10,
     gap: 20,
   },
   eachSocialBtn: {
@@ -68,5 +69,6 @@ const styles = StyleSheet.create({
   },
   eachImg: {
     tintColor: '#777e90',
+    
   },
 });

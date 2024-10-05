@@ -27,6 +27,7 @@ export default function ContactUsContent() {
           style={styles.input}
           placeholder="Search anything"
           autoCapitalize="none"
+          placeholderTextColor={'#777e90'}
         />
         <TouchableOpacity activeOpacity={0.7} style={styles.rightArrowView}>
           <Image
@@ -66,6 +67,7 @@ const styles = StyleSheet.create({
   firstText: {
     fontWeight: 'bold',
     fontSize: 16,
+    color: '#777e90',
   },
   secondText: {
     fontWeight: 'bold',
@@ -77,6 +79,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     width: '70%',
+    color: '#777e90',
   },
   textInputView: {
     width: '90%',
@@ -94,6 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
+    color: '#777e90',
   },
   rightArrowView: {
     width: 30,
@@ -121,5 +125,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '80%',
     letterSpacing: 0.3,
+    color: '#777e90',
   },
 });

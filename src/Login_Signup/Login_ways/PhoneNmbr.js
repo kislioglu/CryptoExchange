@@ -129,6 +129,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#b1b5c3',
     borderRadius: 15,
+    color:'#777e90'
   },
   input: {
     paddingHorizontal: 10,
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '40%',
+    color:'#777e90'
   },
   paswordInsideView: {
     flexDirection: 'row',

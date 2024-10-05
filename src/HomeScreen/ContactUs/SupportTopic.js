@@ -63,11 +63,11 @@ export default function SupportTopic() {
           <TouchableOpacity
             onPress={() => setTopicBtn('Exchange')}
             style={[
-                styles.topicsBtn,
-                topicBtn === 'Exchange'
-                  ? {borderWidth: 2, borderColor: '#3772ff'}
-                  : null,
-              ]}>
+              styles.topicsBtn,
+              topicBtn === 'Exchange'
+                ? {borderWidth: 2, borderColor: '#3772ff'}
+                : null,
+            ]}>
             <Text style={styles.topicsName}>Exchange</Text>
           </TouchableOpacity>
         </View>
@@ -120,7 +120,6 @@ export default function SupportTopic() {
             <View style={styles.inputView}>
               <TextInput
                 style={styles.input}
-                placeholderTextColor={'#777e90'}
                 autoCapitalize="none"
               />
             </View>
@@ -183,6 +182,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     height: '100%',
+    color: '#777e90',
   },
   topicsBtn: {
     width: '48%',

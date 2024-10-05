@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     height: '100%',
+    color:'#777e90'
   },
   paswordInsideView: {
     flexDirection: 'row',

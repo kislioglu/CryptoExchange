@@ -15,7 +15,6 @@ export default function Graphics({isValidData, spark}) {
           justifyContent: 'space-between',
           marginTop: 15,
           marginHorizontal: 20,
-          marginBottom: 50
         }}>
         <TouchableOpacity
           style={[

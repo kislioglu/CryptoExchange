@@ -34,7 +34,7 @@ export default function TrendNfts({trend}) {
           <Text
             style={[
               styles.usdAndPercentageText,
-              trend.data.floor_price < 0 ? styles.red : styles.green,
+              trend.data.floor_price < 0 ? {color: 'red'} : {color: 'green'},
             ]}>
             {Number(
               trend.data.floor_price_in_usd_24h_percentage_change
@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
   },
   eachItemLabel: {
     fontWeight: '600',
+    color: '#777e90',
   },
   usdAndPercentageText: {
     textAlign: 'center',

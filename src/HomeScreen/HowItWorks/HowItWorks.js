@@ -9,7 +9,7 @@ export default function HowItWorks() {
         height: 500,
       }}>
       <View style={styles.captionView}>
-        <Text style={styles.captionText}>How it work</Text>
+        <Text style={styles.captionText}>How it works</Text>
         <Text style={styles.lowerCaptionText}>
           Stacks is a production-ready library of stackable content blocks built
           in React Native.
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     marginBottom: 20,
+    color: '#777e90',
   },
   functionText: {
     fontWeight: '600',

@@ -39,8 +39,8 @@ export default function TrendCoins({trend}) {
             style={[
               styles.usdAndPercentageText,
               trend.item.data.price_change_percentage_24h.usd < 0
-                ? styles.red
-                : styles.green,
+                ? {color: 'red'}
+                : {color: 'green'}
             ]}>
             {Number(
               trend.item.data.price_change_percentage_24h.usd
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
   },
   eachItemLabel: {
     fontWeight: '600',
+    color: '#777e90',
   },
   usdAndPercentageText: {
     textAlign: 'center',

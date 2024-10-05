@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 10,
+    marginTop: 40
   },
   haveAnAccountText: {
     fontWeight: 'bold',
@@ -176,6 +177,7 @@ const styles = StyleSheet.create({
   },
   signInWayText: {
     fontWeight: 'bold',
+    color: '#777e90'
   },
   selectedText: {
     color: '#fff',

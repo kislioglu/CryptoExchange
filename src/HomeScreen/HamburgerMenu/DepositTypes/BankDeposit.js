@@ -66,7 +66,9 @@ export default function BankDeposit() {
               gap: 10,
               alignItems: 'center',
             }}>
-            <Text style={{fontWeight: '700'}}>How to buy crypto on Bitcloud</Text>
+            <Text style={{fontWeight: '700', color: '#777e90'}}>
+              How to buy crypto on Bitcloud
+            </Text>
             <TouchableOpacity
               style={{flexDirection: 'row', gap: 10, alignItems: 'center'}}>
               <Text style={{fontWeight: '700', color: '#23262f'}}>

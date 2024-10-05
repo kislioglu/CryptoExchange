@@ -46,8 +46,9 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   lowerCaption: {
-    fontWeight: '700',
+    fontWeight: '400',
     fontSize: 16,
+    color: '#000',
   },
   marketPic: {
     width: 250,

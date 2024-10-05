@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {marketTradesStaticData} from '../../../../../staticDatas/marketTrades';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -66,18 +66,36 @@ export default function ChartTrades() {
 
       <View style={styles.tradeDetailsView}>
         <View style={styles.eachtradeDetailView}>
-          <TouchableOpacity onPress={() => handleSort('time')}>
+          <TouchableOpacity
+            style={styles.tradeCaptions}
+            onPress={() => handleSort('time')}>
             <Text style={styles.titleText}>Time</Text>
+            <Image
+              style={styles.sortImg}
+              source={require('../../../../../assets/sort.png')}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.eachtradeDetailView}>
-          <TouchableOpacity onPress={() => handleSort('price')}>
+          <TouchableOpacity
+            style={styles.tradeCaptions}
+            onPress={() => handleSort('price')}>
             <Text style={styles.titleText}>Price</Text>
+            <Image
+              style={styles.sortImg}
+              source={require('../../../../../assets/sort.png')}
+            />
           </TouchableOpacity>
         </View>
         <View style={styles.eachtradeDetailView}>
-          <TouchableOpacity onPress={() => handleSort('amount')}>
+          <TouchableOpacity
+            style={styles.tradeCaptions}
+            onPress={() => handleSort('amount')}>
             <Text style={styles.titleText}>Amount</Text>
+            <Image
+              style={styles.sortImg}
+              source={require('../../../../../assets/sort.png')}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -85,13 +103,13 @@ export default function ChartTrades() {
       {tradesData.map((tradeData, index) => (
         <View style={styles.tradeDetailsView} key={index}>
           <View style={styles.eachtradeDetailView}>
-            <Text>{tradeData.time}</Text>
+            <Text style={{color: '#777e90'}}>{tradeData.time}</Text>
           </View>
           <View style={styles.eachtradeDetailView}>
             <Text style={{color: '#58BD7D'}}>{tradeData.price}</Text>
           </View>
           <View style={styles.eachtradeDetailView}>
-            <Text>{tradeData.amount}</Text>
+            <Text style={{color: '#23262f'}}>{tradeData.amount}</Text>
           </View>
         </View>
       ))}
@@ -138,5 +156,15 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontWeight: 'bold',
+    color: '#777e90',
+  },
+  tradeCaptions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  sortImg: {
+    width: 10,
+    height: 10,
   },
 });
