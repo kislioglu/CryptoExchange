@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function TrendNfts({trend}) {
   const navigation = useNavigation();
@@ -22,7 +23,9 @@ export default function TrendNfts({trend}) {
 
       <View style={styles.itemContainerView}>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>Price</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            Price
+          </Text>
           <Text style={styles.priceText}>
             {Number(
               trend.floor_price_in_native_currency.toString().substring(0, 4),
@@ -30,7 +33,9 @@ export default function TrendNfts({trend}) {
           </Text>
         </View>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>24h</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            24h
+          </Text>
           <Text
             style={[
               styles.usdAndPercentageText,
@@ -44,7 +49,9 @@ export default function TrendNfts({trend}) {
           </Text>
         </View>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>Marketcap</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            Marketcap
+          </Text>
           <Text style={styles.usdAndPercentageText}>
             {<Text>No data</Text>}
           </Text>
@@ -93,7 +100,6 @@ const styles = StyleSheet.create({
   },
   eachItemLabel: {
     fontWeight: '600',
-    color: '#777e90',
   },
   usdAndPercentageText: {
     textAlign: 'center',

@@ -11,6 +11,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import {useState} from 'react';
 import ContactUs from '../../ContactUs/ContactUs';
 import FooterNav from '../../Footer/FooterNav';
+import {globalCss} from '../../../../styles/globalCss';
 
 export default function BankDeposit() {
   const [openCurrency, setOpenCurrency] = useState(false);
@@ -142,15 +143,16 @@ export default function BankDeposit() {
         </View>
       </View>
       <TouchableOpacity
-        style={{
-          alignSelf: 'center',
-          marginTop: 30,
-          height: 48,
-          backgroundColor: '#3772ff',
-          justifyContent: 'center',
-          width: 300,
-          borderRadius: 25,
-        }}>
+        style={[
+          globalCss.btnPrimary,
+          {
+            marginTop: 30,
+            height: 48,
+            alignSelf: 'center',
+            width: 300,
+            borderRadius: 25,
+          },
+        ]}>
         <Text
           style={{
             textAlign: 'center',

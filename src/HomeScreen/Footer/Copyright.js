@@ -3,11 +3,12 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Image} from 'react-native';
 import {StyleSheet} from 'react-native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function Copyright() {
   return (
     <View style={styles.container}>
-      <Text style={styles.copyrightText}>
+      <Text style={[styles.copyrightText,globalCss.textColorGrey]}>
         Copyright @ 2021 Ul8 LLC. All rights reserved
       </Text>
 
@@ -55,7 +56,6 @@ const styles = StyleSheet.create({
   copyrightText: {
     alignSelf: 'center',
     fontWeight: '400',
-    color: '#777e90',
   },
   socialsView: {
     flexDirection: 'row',
@@ -69,6 +69,5 @@ const styles = StyleSheet.create({
   },
   eachImg: {
     tintColor: '#777e90',
-    
   },
 });

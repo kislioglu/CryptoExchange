@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function SupportTopic() {
   const [openFirstTopics, setOpenFirstTopics] = useState(false);
@@ -104,7 +105,7 @@ export default function SupportTopic() {
             <Text style={styles.inputCaption}>EMAIL ADRESS</Text>
             <View style={styles.inputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholderTextColor={'#777e90'}
                 placeholder="Email address"
                 keyboardType="email-address"
@@ -119,7 +120,7 @@ export default function SupportTopic() {
             <Text style={styles.inputCaption}>SUBJECT</Text>
             <View style={styles.inputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 autoCapitalize="none"
               />
             </View>
@@ -128,7 +129,11 @@ export default function SupportTopic() {
             <Text style={styles.inputCaption}>MESSAGE</Text>
             <View style={[styles.inputView, {height: 150}]}>
               <TextInput
-                style={[styles.input, {textAlignVertical: 'top'}]}
+                style={[
+                  styles.input,
+                  globalCss.textColorGrey,
+                  {textAlignVertical: 'top'},
+                ]}
                 placeholderTextColor={'#777e90'}
                 placeholder="Say something"
                 autoCapitalize="none"
@@ -137,7 +142,7 @@ export default function SupportTopic() {
               />
             </View>
           </View>
-          <TouchableOpacity style={styles.sendMsgBtn}>
+          <TouchableOpacity style={[styles.sendMsgBtn, globalCss.btnPrimary]}>
             <Text style={{color: '#fff', fontWeight: 'bold'}}>
               Send message
             </Text>
@@ -182,7 +187,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     height: '100%',
-    color: '#777e90',
   },
   topicsBtn: {
     width: '48%',
@@ -202,10 +206,7 @@ const styles = StyleSheet.create({
   sendMsgBtn: {
     width: 140,
     height: 40,
-    backgroundColor: '#3772ff',
     borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginVertical: 40,
     alignSelf: 'flex-end',
   },

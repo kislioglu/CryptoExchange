@@ -11,6 +11,7 @@ import CryptoRequest from '../../services/ApiRequests';
 import Graphics from './Graphics';
 import BuyModal from './Graphics/Modals/BuyModal';
 import SellModal from './Graphics/Modals/SellModal';
+import {globalCss} from '../../styles/globalCss';
 
 export default function CoinFirstLookInformations({route}) {
   const coinData = CryptoRequest();
@@ -86,7 +87,8 @@ export default function CoinFirstLookInformations({route}) {
                   style={styles.dollarImg}
                   source={require('../../assets/dollar.png')}
                 />
-                <Text style={styles.fixedColorPriceText}>
+                <Text
+                  style={[styles.fixedColorPriceText, globalCss.textColorGrey]}>
                   {coinsInfo?.current_price}
                 </Text>
               </View>
@@ -209,7 +211,6 @@ const styles = StyleSheet.create({
   fixedColorPriceText: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#777e90',
   },
   priceChangesView: {
     marginTop: 30,

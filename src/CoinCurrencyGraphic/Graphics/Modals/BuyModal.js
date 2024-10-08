@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Slider from '@react-native-community/slider';
+import {globalCss} from '../../../../styles/globalCss';
 
 export default function BuyModal({
   isBuyModalVisible,
@@ -39,7 +40,9 @@ export default function BuyModal({
               justifyContent: 'space-between',
               marginBottom: 20,
             }}>
-            <Text style={styles.modalTitle}>Place order</Text>
+            <Text style={[styles.modalTitle, globalCss.textColorGrey]}>
+              Place order
+            </Text>
             <TouchableOpacity
               style={styles.closeButton}
               onPress={() => setBuyModalVisible(false)}>
@@ -68,7 +71,7 @@ export default function BuyModal({
           <View style={{gap: 15}}>
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Price"
                 keyboardType="numeric"
                 placeholderTextColor={'#777e90'}
@@ -79,7 +82,7 @@ export default function BuyModal({
             </View>
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Amount"
                 keyboardType="numeric"
                 value={value.toFixed(1)}
@@ -107,7 +110,7 @@ export default function BuyModal({
             />
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Total"
                 keyboardType="numeric"
                 placeholderTextColor={'#777e90'}
@@ -144,7 +147,6 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#777e90',
   },
   closeButton: {
     width: 26,
@@ -168,7 +170,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
-    color: '#777e90',
   },
   currencyType: {
     justifyContent: 'center',

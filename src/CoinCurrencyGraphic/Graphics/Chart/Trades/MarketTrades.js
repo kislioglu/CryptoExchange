@@ -2,6 +2,7 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import {marketTradesStaticData} from '../../../../../staticDatas/marketTrades';
 import DropDownPicker from 'react-native-dropdown-picker';
+import {globalCss} from '../../../../../styles/globalCss';
 
 export default function ChartTrades() {
   const [tradesData, setTradesData] = useState([]);
@@ -69,7 +70,9 @@ export default function ChartTrades() {
           <TouchableOpacity
             style={styles.tradeCaptions}
             onPress={() => handleSort('time')}>
-            <Text style={styles.titleText}>Time</Text>
+            <Text style={[styles.titleText, globalCss.textColorGrey]}>
+              Time
+            </Text>
             <Image
               style={styles.sortImg}
               source={require('../../../../../assets/sort.png')}
@@ -80,7 +83,9 @@ export default function ChartTrades() {
           <TouchableOpacity
             style={styles.tradeCaptions}
             onPress={() => handleSort('price')}>
-            <Text style={styles.titleText}>Price</Text>
+            <Text style={[styles.titleText, globalCss.textColorGrey]}>
+              Price
+            </Text>
             <Image
               style={styles.sortImg}
               source={require('../../../../../assets/sort.png')}
@@ -91,7 +96,9 @@ export default function ChartTrades() {
           <TouchableOpacity
             style={styles.tradeCaptions}
             onPress={() => handleSort('amount')}>
-            <Text style={styles.titleText}>Amount</Text>
+            <Text style={[styles.titleText, globalCss.textColorGrey]}>
+              Amount
+            </Text>
             <Image
               style={styles.sortImg}
               source={require('../../../../../assets/sort.png')}
@@ -156,7 +163,6 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontWeight: 'bold',
-    color: '#777e90',
   },
   tradeCaptions: {
     flexDirection: 'row',

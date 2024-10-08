@@ -9,6 +9,7 @@ import {
 import React, {useState} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
 import {useNavigation} from '@react-navigation/native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function PhoneNmbr() {
   const [phone, setPhone] = useState('');
@@ -89,7 +90,7 @@ export default function PhoneNmbr() {
           </Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.LoginBtn}>
+      <TouchableOpacity style={[styles.LoginBtn, globalCss.btnPrimary]}>
         <Text style={styles.LoginBtnText}>Login</Text>
       </TouchableOpacity>
     </View>
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#b1b5c3',
     borderRadius: 15,
-    color:'#777e90'
+    color: '#777e90',
   },
   input: {
     paddingHorizontal: 10,
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: '100%',
     width: '40%',
-    color:'#777e90'
+    color: '#777e90',
   },
   paswordInsideView: {
     flexDirection: 'row',
@@ -159,10 +160,8 @@ const styles = StyleSheet.create({
   LoginBtn: {
     width: '100%',
     height: 45,
-    backgroundColor: '#3772ff',
     borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+
     marginTop: 30,
   },
   LoginBtnText: {

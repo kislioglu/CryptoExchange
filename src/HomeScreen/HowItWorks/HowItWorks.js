@@ -1,6 +1,7 @@
 import {View, Text, Image, ScrollView} from 'react-native';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function HowItWorks() {
   return (
@@ -10,7 +11,7 @@ export default function HowItWorks() {
       }}>
       <View style={styles.captionView}>
         <Text style={styles.captionText}>How it works</Text>
-        <Text style={styles.lowerCaptionText}>
+        <Text style={[styles.lowerCaptionText,globalCss.textColorGrey]}>
           Stacks is a production-ready library of stackable content blocks built
           in React Native.
         </Text>
@@ -23,7 +24,9 @@ export default function HowItWorks() {
             source={require('../../../assets/card-pic-2.png')}
           />
           <View>
-            <Text style={styles.stepNumberText}>Step 1</Text>
+            <Text style={[styles.stepNumberText, globalCss.textColorGrey]}>
+              Step 1
+            </Text>
             <Text style={styles.functionText}>Download</Text>
             <Text style={styles.functionExplanationText}>
               Stacks is a production-ready library of stackable content blocks
@@ -37,7 +40,9 @@ export default function HowItWorks() {
             source={require('../../../assets/card-pic-3.png')}
           />
           <View>
-            <Text style={styles.stepNumberText}>Step 2</Text>
+            <Text style={[styles.stepNumberText, globalCss.textColorGrey]}>
+              Step 2
+            </Text>
             <Text style={styles.functionText}>Connect Wallet</Text>
             <Text style={styles.functionExplanationText}>
               Stacks is a production-ready library of stackable content blocks
@@ -51,7 +56,9 @@ export default function HowItWorks() {
             source={require('../../../assets/card-pic-1.png')}
           />
           <View>
-            <Text style={styles.stepNumberText}>Step 3</Text>
+            <Text style={[styles.stepNumberText, globalCss.textColorGrey]}>
+              Step 3
+            </Text>
             <Text style={styles.functionText}>Start Trading</Text>
             <Text style={styles.functionExplanationText}>
               Stacks is a production-ready library of stackable content blocks
@@ -65,7 +72,9 @@ export default function HowItWorks() {
             source={require('../../../assets/card-pic-4.png')}
           />
           <View>
-            <Text style={styles.stepNumberText}>Step 4</Text>
+            <Text style={[styles.stepNumberText, globalCss.textColorGrey]}>
+              Step 4
+            </Text>
             <Text style={styles.functionText}>Earn Money</Text>
             <Text style={styles.functionExplanationText}>
               Stacks is a production-ready library of stackable content blocks
@@ -92,7 +101,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   lowerCaptionText: {
-    color: '#777e90',
     fontWeight: '500',
     width: '63%',
     textAlign: 'center',
@@ -111,7 +119,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 12,
     marginBottom: 20,
-    color: '#777e90',
   },
   functionText: {
     fontWeight: '600',

@@ -1,6 +1,7 @@
 import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function JoinUs() {
   const navigation = useNavigation();
@@ -17,7 +18,7 @@ export default function JoinUs() {
         <Text style={styles.captionText}>
           Stay in the know on crypto with Bitcloud
         </Text>
-        <Text style={styles.lowerCaptionText}>
+        <Text style={[styles.lowerCaptionText,globalCss.textColorGrey]}>
           A creative agency that lead and inspire
         </Text>
       </View>
@@ -28,9 +29,9 @@ export default function JoinUs() {
         />
       </View>
       <View style={styles.endOfComponentView}>
-        <Text style={styles.miniText}>DESIGN NEWS</Text>
+        <Text style={[styles.miniText,globalCss.textColorGrey]}>DESIGN NEWS</Text>
         <Text style={styles.bePartText}>Be Part of our Global Community</Text>
-        <Text style={styles.sloganText}>
+        <Text style={[styles.sloganText,globalCss.textColorGrey]}>
           Stack solves business problems from simple to complex.
         </Text>
       </View>
@@ -75,7 +76,6 @@ const styles = StyleSheet.create({
   },
   lowerCaptionText: {
     fontWeight: '400',
-    color: '#777e90',
     width: '60%',
     textAlign: 'center',
   },
@@ -95,7 +95,6 @@ const styles = StyleSheet.create({
   miniText: {
     fontWeight: 'bold',
     fontSize: 12,
-    color: '#777e90',
   },
   bePartText: {
     fontWeight: 'bold',
@@ -107,7 +106,6 @@ const styles = StyleSheet.create({
   sloganText: {
     fontWeight: '500',
     fontSize: 14,
-    color: '#777e90',
     width: '65%',
     textAlign: 'center',
     marginBottom: 20,

@@ -5,6 +5,7 @@ import {Image} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {TextInput} from 'react-native';
+import {globalCss} from '../../styles/globalCss';
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('');
@@ -42,7 +43,7 @@ export default function ForgotPassword() {
       </View>
       <View style={styles.forgotPassView}>
         <Text style={styles.captionText}>Forgot password</Text>
-        <Text style={styles.infoText}>
+        <Text style={[styles.infoText, globalCss.textColorGrey]}>
           For security purposes, no withdrawals are permitted for 24 hours after
           password changed.
         </Text>
@@ -52,7 +53,7 @@ export default function ForgotPassword() {
         <Text style={styles.inputCaption}>ENTER THE ACCOUNT EMAIL</Text>
         <View style={styles.inputView}>
           <TextInput
-            style={styles.input}
+            style={[styles.input, globalCss.textColorGrey]}
             placeholderTextColor={'#777e90'}
             placeholder="Email address"
             keyboardType="email-address"
@@ -68,7 +69,7 @@ export default function ForgotPassword() {
         {error ? <Text>{error}</Text> : null}
       </View>
       <View style={styles.btnsView}>
-        <TouchableOpacity style={styles.LoginBtn}>
+        <TouchableOpacity style={[styles.LoginBtn, globalCss.btnPrimary]}>
           <Text style={styles.LoginBtnText}>Continue</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -135,7 +136,6 @@ const styles = StyleSheet.create({
     width: '85%',
     textAlign: 'center',
     fontWeight: '500',
-    color: '#777e90',
   },
   border: {
     borderBottomWidth: 2,
@@ -163,7 +163,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     flex: 1,
     height: '100%',
-    color: '#777e90',
   },
   letterImg: {
     marginRight: 10,
@@ -174,12 +173,10 @@ const styles = StyleSheet.create({
   },
   LoginBtn: {
     width: '80%',
-    height: 45,
-    backgroundColor: '#3772ff',
     borderRadius: 20,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 10,
   },
   LoginBtnText: {
     fontWeight: '600',

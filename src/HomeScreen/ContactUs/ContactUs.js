@@ -5,6 +5,7 @@ import {StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function ContactUs() {
   const navigation = useNavigation();
@@ -14,7 +15,7 @@ export default function ContactUs() {
         <Text style={styles.captionText}>
           Become a crypto trader in seconds
         </Text>
-        <Text style={styles.lowerCaptionText}>
+        <Text style={[styles.lowerCaptionText, globalCss.textColorGrey]}>
           Stacks is a production-ready library of stackable content blocks built
           in React Native.
         </Text>
@@ -29,7 +30,7 @@ export default function ContactUs() {
             source={require('../../../assets/card-pic-1.png')}
           />
           <Text style={styles.coreText}>Core Value 01</Text>
-          <Text style={styles.explanationText}>
+          <Text style={[styles.explanationText, globalCss.textColorGrey]}>
             We realize ideas from simple to complex, everything becomes easy to
             use and reach the most potential customers.
           </Text>
@@ -40,7 +41,7 @@ export default function ContactUs() {
             source={require('../../../assets/card-pic-2.png')}
           />
           <Text style={styles.coreText}>Core Value 02</Text>
-          <Text style={styles.explanationText}>
+          <Text style={[styles.explanationText, globalCss.textColorGrey]}>
             We realize ideas from simple to complex, everything becomes easy to
             use and reach the most potential customers.
           </Text>
@@ -51,13 +52,13 @@ export default function ContactUs() {
             source={require('../../../assets/card-pic-3.png')}
           />
           <Text style={styles.coreText}>Core Value 03</Text>
-          <Text style={styles.explanationText}>
+          <Text style={[styles.explanationText, globalCss.textColorGrey]}>
             We realize ideas from simple to complex, everything becomes easy to
             use and reach the most potential customers.
           </Text>
         </View>
       </ScrollView>
-      <View style={styles.contactUsView}>
+      <View style={[styles.contactUsView, globalCss.btnPrimary]}>
         <TouchableOpacity
           onPress={() => navigation.navigate('ContactUsContent')}
           style={styles.contactUsButton}>
@@ -82,7 +83,6 @@ const styles = StyleSheet.create({
   },
   lowerCaptionText: {
     fontWeight: '500',
-    color: '#777e90',
     width: '80%',
   },
   cardsView: {
@@ -111,14 +111,12 @@ const styles = StyleSheet.create({
   explanationText: {
     paddingHorizontal: 40,
     textAlign: 'center',
-    color: '#777e90',
     fontWeight: '500',
   },
   contactUsView: {
     width: '90%',
     height: 50,
     alignSelf: 'center',
-    backgroundColor: '#3772ff',
     marginVertical: 50,
     borderRadius: 30,
   },

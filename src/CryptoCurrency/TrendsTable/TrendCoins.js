@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function TrendCoins({trend}) {
   const navigation = useNavigation();
@@ -21,26 +22,30 @@ export default function TrendCoins({trend}) {
         <TouchableOpacity
           onPress={() => handleOnPress(trend)}
           activeOpacity={0.8}
-          style={styles.buyBtn}>
+          style={[styles.buyBtn, globalCss.btnPrimary]}>
           <Text style={styles.buyBtnText}>Buy</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.itemContainerView}>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>Price</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            Price
+          </Text>
           <Text style={styles.priceText}>
             {Number(trend.item.data.price.toString().substring(0, 7))}
           </Text>
         </View>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>24h</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            24h
+          </Text>
           <Text
             style={[
               styles.usdAndPercentageText,
               trend.item.data.price_change_percentage_24h.usd < 0
                 ? {color: 'red'}
-                : {color: 'green'}
+                : {color: 'green'},
             ]}>
             {Number(
               trend.item.data.price_change_percentage_24h.usd
@@ -50,7 +55,9 @@ export default function TrendCoins({trend}) {
           </Text>
         </View>
         <View style={styles.eachItemView}>
-          <Text style={styles.eachItemLabel}>Marketcap</Text>
+          <Text style={[styles.eachItemLabel, globalCss.textColorGrey]}>
+            Marketcap
+          </Text>
           <Text style={styles.usdAndPercentageText}>
             {trend.item.data.market_cap}
           </Text>
@@ -86,9 +93,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 0,
     width: 90,
-    backgroundColor: '#0045ea',
     padding: 6,
-    alignItems: 'center',
     borderRadius: 20,
   },
   buyBtnText: {
@@ -112,7 +117,6 @@ const styles = StyleSheet.create({
   },
   eachItemLabel: {
     fontWeight: '600',
-    color: '#777e90',
   },
   usdAndPercentageText: {
     textAlign: 'center',

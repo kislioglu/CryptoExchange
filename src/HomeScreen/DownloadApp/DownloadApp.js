@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {Image} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {StyleSheet} from 'react-native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function DownloadApp() {
   return (
@@ -13,7 +14,7 @@ export default function DownloadApp() {
       />
       <View style={styles.captionView}>
         <Text style={styles.captionText}>Trade anywhere</Text>
-        <Text style={styles.lowerCaptionText}>
+        <Text style={[styles.lowerCaptionText,globalCss.textColorGrey]}>
           Anytime, anywhere, Trade crypto on your terms.
         </Text>
       </View>
@@ -27,7 +28,7 @@ export default function DownloadApp() {
             />
           </View>
           <View>
-            <Text style={{color: '#777e90', fontWeight: '500'}}>
+            <Text style={[globalCss.textColorGrey, {fontWeight: '500'}]}>
               Download from
             </Text>
             <Text style={{color: '#000', fontWeight: 'bold', fontSize: 20}}>
@@ -43,7 +44,7 @@ export default function DownloadApp() {
             />
           </View>
           <View>
-            <Text style={{color: '#777e90', fontWeight: '500'}}>
+            <Text style={[globalCss.textColorGrey, {fontWeight: '500'}]}>
               Download from
             </Text>
             <Text style={{color: '#000', fontWeight: 'bold', fontSize: 20}}>
@@ -61,7 +62,7 @@ export default function DownloadApp() {
             />
           </View>
           <View>
-            <Text style={{color: '#777e90', fontWeight: '500'}}>
+            <Text style={[globalCss.textColorGrey, {fontWeight: '500'}]}>
               Download from
             </Text>
             <Text style={{color: '#000', fontWeight: 'bold', fontSize: 20}}>
@@ -92,7 +93,6 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   lowerCaptionText: {
-    color: '#777e90',
     fontWeight: '500',
     width: '65%',
   },

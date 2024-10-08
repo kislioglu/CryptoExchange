@@ -11,6 +11,7 @@ import {Table, Row} from 'react-native-table-component';
 import TrendsRequest from '../../../services/TrendRequest';
 import TrendCoinsAndNfts from './TrendCoinsAndNfts';
 import {useNavigation} from '@react-navigation/native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function Trends() {
   const trends = TrendsRequest();
@@ -56,7 +57,7 @@ export default function Trends() {
                       data={state.tableHead}
                       widthArr={state.widthArr}
                       style={styles.head}
-                      textStyle={styles.text}
+                      textStyle={[styles.text,globalCss.textColorGrey]}
                     />
                   </Table>
                   <View>
@@ -119,7 +120,6 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 10,
     fontWeight: 'bold',
-    color: '#777e90',
   },
   moreBtn: {
     borderRadius: 20,

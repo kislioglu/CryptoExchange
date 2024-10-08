@@ -10,6 +10,7 @@ import Contact from './Contact';
 import Newsletter from './Newsletter';
 import Copyright from './Copyright';
 import {useNavigation} from '@react-navigation/native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function FooterNav() {
   const navigation = useNavigation();
@@ -55,31 +56,31 @@ export default function FooterNav() {
                 onPress={() =>
                   navigation.navigate('TodaysTrendCurrencyPrices')
                 }>
-                <Text style={styles.itemBtnText}>Exchange</Text>
+                <Text style={[styles.itemBtnText,globalCss.textColorGrey]}>Exchange</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate('TodaysTrendCurrencyPrices')
                 }>
-                <Text style={styles.itemBtnText}>Buy Crypto</Text>
+                <Text style={[styles.itemBtnText,globalCss.textColorGrey]}>Buy Crypto</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate('TodaysTrendCurrencyPrices')
                 }>
-                <Text style={styles.itemBtnText}>Market</Text>
+                <Text style={[styles.itemBtnText,globalCss.textColorGrey]}>Market</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate('ContactUsContent')
                 }>
-                <Text style={styles.itemBtnText}>Learn Crypto</Text>
+                <Text style={[styles.itemBtnText,globalCss.textColorGrey]}>Learn Crypto</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() =>
                   navigation.navigate('ContactUsContent')
                 }>
-                <Text style={styles.itemBtnText}>Contact</Text>
+                <Text style={[styles.itemBtnText,globalCss.textColorGrey]}>Contact</Text>
               </TouchableOpacity>
             </Animated.View>
           </View>
@@ -130,7 +131,6 @@ const styles = StyleSheet.create({
   },
   itemBtnText: {
     fontWeight: 'bold',
-    color: '#777E90',
   },
   borderBottom: {
     borderBottomWidth: 1,

@@ -6,6 +6,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function FAQ() {
   const [open, setOpen] = useState(false);
@@ -73,7 +74,7 @@ export default function FAQ() {
             </TouchableOpacity>
             {expandedIndex === index ? (
               <Animated.View style={[styles.textContainer, animatedStyle]}>
-                <Text style={styles.text}>
+                <Text style={[styles.text,globalCss.textColorGrey]}>
                   The Stacks series of products: Stacks: Landing Page Kit,
                   Stacks: Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a
                   production-ready library of stackable content blocks built in
@@ -145,6 +146,5 @@ const styles = StyleSheet.create({
     width: '80%',
     lineHeight: 24,
     letterSpacing: 0.3,
-    color: '#777e90',
   },
 });

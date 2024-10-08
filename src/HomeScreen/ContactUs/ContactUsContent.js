@@ -11,25 +11,30 @@ import React from 'react';
 import FAQ from './FAQ';
 import FooterNav from '../Footer/FooterNav';
 import SupportTopic from './SupportTopic';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function ContactUsContent() {
   return (
     <ScrollView style={{backgroundColor: '#fff'}}>
       <View style={styles.topPageTextView}>
-        <Text style={styles.firstText}>SAVE YOUR TIME WITH STACKS</Text>
+        <Text style={[styles.firstText, globalCss.textColorGreyss]}>
+          SAVE YOUR TIME WITH STACKS
+        </Text>
         <Text style={styles.secondText}>How can we help</Text>
-        <Text style={styles.thirdText}>
+        <Text style={[styles.thirdText, globalCss.textColorGrey]}>
           A creative agency that lead and inspire
         </Text>
       </View>
       <View style={styles.textInputView}>
         <TextInput
-          style={styles.input}
+          style={[styles.input, globalCss.textColorGrey]}
           placeholder="Search anything"
           autoCapitalize="none"
           placeholderTextColor={'#777e90'}
         />
-        <TouchableOpacity activeOpacity={0.7} style={styles.rightArrowView}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={[styles.rightArrowView, globalCss.btnPrimary]}>
           <Image
             style={styles.rightArrowImg}
             source={require('../../../assets/rightArrow.png')}
@@ -41,7 +46,7 @@ export default function ContactUsContent() {
           style={styles.contactbgImg}
           source={require('../../../assets/contactbg.png')}
         />
-        <Text style={styles.contactbgText}>
+        <Text style={[styles.contactbgText, globalCss.textColorGrey]}>
           Before asking for an answer, you may find it in our learn crypto
           center
         </Text>
@@ -67,7 +72,6 @@ const styles = StyleSheet.create({
   firstText: {
     fontWeight: 'bold',
     fontSize: 16,
-    color: '#777e90',
   },
   secondText: {
     fontWeight: 'bold',
@@ -79,7 +83,6 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 16,
     width: '70%',
-    color: '#777e90',
   },
   textInputView: {
     width: '90%',
@@ -97,15 +100,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
-    color: '#777e90',
   },
   rightArrowView: {
     width: 30,
     height: 30,
-    backgroundColor: '#3772ff',
     borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   rightArrowImg: {
     width: 24,
@@ -125,6 +124,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '80%',
     letterSpacing: 0.3,
-    color: '#777e90',
   },
 });

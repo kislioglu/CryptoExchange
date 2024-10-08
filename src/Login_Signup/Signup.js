@@ -11,6 +11,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import {useNavigation} from '@react-navigation/native';
+import { globalCss } from '../../styles/globalCss';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -178,7 +179,7 @@ export default function Signup() {
             </Text>
           </Text>
         </View>
-        <TouchableOpacity style={styles.signUpBtn}>
+        <TouchableOpacity style={[styles.signUpBtn, globalCss.btnPrimary]}>
           <Text style={styles.signUpText}>Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -327,11 +328,8 @@ const styles = StyleSheet.create({
   signUpBtn: {
     width: '80%',
     height: 45,
-    backgroundColor: '#3772ff',
     borderRadius: 20,
     alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
     marginBottom: 20,
   },
   signUpText: {

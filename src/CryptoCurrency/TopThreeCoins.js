@@ -5,6 +5,7 @@ import {StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import {Image} from 'react-native';
+import {globalCss} from '../../styles/globalCss';
 
 export default function TopThreeCoins() {
   const coinData = CryptoRequest();
@@ -23,14 +24,11 @@ export default function TopThreeCoins() {
       horizontal
       showsHorizontalScrollIndicator={false}>
       {matched?.map((matcehdCoin, index) => (
-        <View
-          activeOpacity={0.7}
-          style={styles.topCoinsView}
-          key={index}>
+        <View activeOpacity={0.7} style={styles.topCoinsView} key={index}>
           <Image style={styles.topCoinImg} source={{uri: matcehdCoin.image}} />
           <View style={styles.priceView}>
             <View style={styles.coinNameAndChangePercentage}>
-              <Text style={styles.topCoinName}>
+              <Text style={[styles.topCoinName, globalCss.textColorGrey]}>
                 {matcehdCoin.symbol.toUpperCase()}/USDT
               </Text>
               <Text
@@ -88,7 +86,6 @@ const styles = StyleSheet.create({
   },
   topCoinName: {
     fontWeight: '700',
-    color: '#777e90',
   },
   pricePercentage: {
     paddingHorizontal: 10,

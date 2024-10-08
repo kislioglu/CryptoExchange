@@ -1,6 +1,7 @@
 import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function HamburgerMenu() {
   const navigation = useNavigation();
@@ -12,13 +13,17 @@ export default function HamburgerMenu() {
         <TouchableOpacity
           onPress={() => navigation.navigate('TodaysTrendCurrencyPrices')}
           style={styles.eachBtn}>
-          <Text style={styles.btnText}>Exchange</Text>
+          <Text style={[styles.btnText, globalCss.textColorGrey]}>
+            Exchange
+          </Text>
         </TouchableOpacity>
         <View>
           <TouchableOpacity
             onPress={() => setPressed(!pressed)}
             style={styles.eachBtn}>
-            <Text style={styles.btnText}>Buy Crypto</Text>
+            <Text style={[styles.btnText, globalCss.textColorGrey]}>
+              Buy Crypto
+            </Text>
             <Image
               style={{position: 'absolute', right: 0}}
               source={require('../../../assets/down.png')}
@@ -44,12 +49,14 @@ export default function HamburgerMenu() {
         <TouchableOpacity
           onPress={() => navigation.navigate('TodaysTrendCurrencyPrices')}
           style={styles.eachBtn}>
-          <Text style={styles.btnText}>Market</Text>
+          <Text style={[styles.btnText, globalCss.textColorGrey]}>Market</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('TodaysTrendCurrencyPrices')}
           style={styles.eachBtn}>
-          <Text style={styles.btnText}>Discover</Text>
+          <Text style={[styles.btnText, globalCss.textColorGrey]}>
+            Discover
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -71,7 +78,6 @@ const styles = StyleSheet.create({
   btnText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#777e90',
   },
   subBtn: {
     height: 55,

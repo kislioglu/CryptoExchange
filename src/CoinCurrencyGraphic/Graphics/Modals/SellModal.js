@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import Slider from '@react-native-community/slider';
+import {globalCss} from '../../../../styles/globalCss';
 
 export default function SellModal({
   isSellModalVisible,
@@ -66,7 +67,7 @@ export default function SellModal({
           <View style={{gap: 15}}>
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Limit"
                 keyboardType="numeric"
                 placeholderTextColor={'#777e90'}
@@ -77,7 +78,7 @@ export default function SellModal({
             </View>
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Amount"
                 keyboardType="numeric"
                 value={value.toFixed(1)}
@@ -105,7 +106,7 @@ export default function SellModal({
             />
             <View style={styles.AmountInputView}>
               <TextInput
-                style={styles.input}
+                style={[styles.input, globalCss.textColorGrey]}
                 placeholder="Total"
                 keyboardType="numeric"
                 placeholderTextColor={'#777e90'}
@@ -165,7 +166,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
-    color: '#777e90',
   },
   currencyType: {
     justifyContent: 'center',

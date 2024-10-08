@@ -7,6 +7,7 @@ import {
   Image,
   StyleSheet,
 } from 'react-native';
+import {globalCss} from '../../../styles/globalCss';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -39,7 +40,7 @@ export default function Newsletter() {
           </Text>
           <View style={styles.textInputView}>
             <TextInput
-              style={styles.input}
+              style={[styles.input, globalCss.textColorGrey]}
               placeholder="Enter your email"
               placeholderTextColor={'#777e90'}
               keyboardType="email-address"
@@ -47,14 +48,17 @@ export default function Newsletter() {
               value={email}
               onChangeText={handleChange}
             />
-            <TouchableOpacity style={styles.rightArrowView}>
+            <TouchableOpacity
+              style={[styles.rightArrowView, globalCss.btnPrimary]}>
               <Image
                 style={styles.rightArrowImg}
                 source={require('../../../assets/rightArrow.png')}
               />
             </TouchableOpacity>
           </View>
-          {email !== '' && error ? <Text style={styles.error}>{error}</Text> : null}
+          {email !== '' && error ? (
+            <Text style={styles.error}>{error}</Text>
+          ) : null}
         </View>
       </View>
       <View style={styles.borderBottom} />
@@ -97,15 +101,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 50,
     paddingHorizontal: 10,
-    color: '#777e90',
   },
   rightArrowView: {
     width: 30,
     height: 30,
-    backgroundColor: '#3772ff',
     borderRadius: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   rightArrowImg: {
     width: 24,

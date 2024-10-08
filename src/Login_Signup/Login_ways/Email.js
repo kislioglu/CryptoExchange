@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
+import { globalCss } from '../../../styles/globalCss';
 
 export default function Email() {
   const [email, setEmail] = useState('');
@@ -79,7 +80,7 @@ export default function Email() {
           </Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.LoginBtn}>
+      <TouchableOpacity style={[styles.LoginBtn, globalCss.btnPrimary]}>
         <Text style={styles.LoginBtnText}>Login</Text>
       </TouchableOpacity>
     </View>
@@ -124,10 +125,7 @@ const styles = StyleSheet.create({
   LoginBtn: {
     width: '100%',
     height: 45,
-    backgroundColor: '#3772ff',
     borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 30,
   },
   LoginBtnText: {
