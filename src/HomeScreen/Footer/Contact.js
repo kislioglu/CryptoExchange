@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     width: '90%',
     marginLeft: 20,
+    marginTop: 15
   },
   captionBtn: {
     flexDirection: 'row',
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   borderBottom: {
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     width: '90%',
     alignSelf: 'center',
     marginTop: 20,
