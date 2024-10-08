@@ -1,4 +1,4 @@
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, Image} from 'react-native';
 import React, {useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
@@ -36,7 +36,9 @@ export default function Welcome() {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={[styles.box, animatedStyle]} />
+      <Animated.View style={[animatedStyle]}>
+        <Image source={require('../assets/logo.png')} />
+      </Animated.View>
     </View>
   );
 }
@@ -47,11 +49,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: '100%',
     backgroundColor: 'black',
-  },
-  box: {
-    height: 120,
-    width: 120,
-    backgroundColor: '#b58df1',
-    borderRadius: 20,
   },
 });
