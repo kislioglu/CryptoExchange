@@ -105,12 +105,6 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
   },
-  navigateButtonText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 14,
-    textAlign: 'center',
-  },
   container: {
     width: 40,
     height: 40,
