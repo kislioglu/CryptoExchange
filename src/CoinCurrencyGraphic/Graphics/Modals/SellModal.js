@@ -117,7 +117,7 @@ export default function SellModal({
             </View>
 
             <TouchableOpacity style={styles.SellButton}>
-              <Text style={styles.SellButtonText}>
+              <Text style={[styles.SellButtonText, globalCss.textColorWhite]}>
                 Sell {coinsInfo?.symbol?.toUpperCase()}
               </Text>
             </TouchableOpacity>
@@ -186,7 +186,6 @@ const styles = StyleSheet.create({
   },
   SellButtonText: {
     textAlign: 'center',
-    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },

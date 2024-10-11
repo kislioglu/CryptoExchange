@@ -21,12 +21,12 @@ export default function Home() {
 
   return (
     <View>
-      <View>
-        <Header />
-      </View>
       <ScrollView
         nestedScrollEnabled={true}
         style={{backgroundColor: '#fff', height: '100%'}}>
+        <View>
+          <Header />
+        </View>
         <View style={styles.sloganView}>
           <View style={styles.captionView}>
             <Text style={styles.captionText}>Buy & sell crypto in minutes</Text>
@@ -43,7 +43,9 @@ export default function Home() {
             onPress={() => navigation.navigate('Signup')}
             style={styles.navigateButton}
             activeOpacity={0.3}>
-            <Text style={styles.navigateButtonText}>Get started now</Text>
+            <Text style={[styles.navigateButtonText, globalCss.textColorWhite]}>
+              Get started now
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.walletImgView}>
@@ -113,7 +115,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   navigateButtonText: {
-    color: '#fff',
     fontWeight: '600',
     fontSize: 14,
     textAlign: 'center',

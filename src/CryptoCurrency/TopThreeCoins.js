@@ -34,6 +34,7 @@ export default function TopThreeCoins() {
               <Text
                 style={[
                   styles.pricePercentage,
+                  globalCss.textColorWhite,
                   matcehdCoin.price_change_percentage_24h < 0
                     ? {backgroundColor: '#ff6838'}
                     : {backgroundColor: '#58bd7d'},
@@ -90,7 +91,6 @@ const styles = StyleSheet.create({
   pricePercentage: {
     paddingHorizontal: 10,
     paddingVertical: 3,
-    color: '#fff',
     borderRadius: 15,
     fontWeight: '600',
   },

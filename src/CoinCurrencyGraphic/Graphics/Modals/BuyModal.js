@@ -121,7 +121,7 @@ export default function BuyModal({
             </View>
 
             <TouchableOpacity style={styles.BuyButton}>
-              <Text style={styles.BuyButtonText}>
+              <Text style={[styles.BuyButtonText, globalCss.textColorWhite]}>
                 Buy {coinsInfo?.symbol?.toUpperCase()}{' '}
               </Text>
             </TouchableOpacity>
@@ -190,7 +190,6 @@ const styles = StyleSheet.create({
   },
   BuyButtonText: {
     textAlign: 'center',
-    color: '#fff',
     fontWeight: 'bold',
     fontSize: 20,
   },

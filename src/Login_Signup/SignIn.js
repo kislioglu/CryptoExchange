@@ -6,6 +6,7 @@ import {TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Email from './Login_ways/Email';
 import PhoneNmbr from './Login_ways/PhoneNmbr';
+import {globalCss} from '../../styles/globalCss';
 
 export default function SignIn() {
   const navigation = useNavigation();
@@ -62,7 +63,7 @@ export default function SignIn() {
           <Text
             style={[
               styles.signInWayText,
-              select === 'email' && styles.selectedText,
+              select === 'email' && globalCss.textColorWhite,
             ]}>
             Email
           </Text>
@@ -73,10 +74,13 @@ export default function SignIn() {
             select === 'mobile' && styles.selectedBtn,
           ]}
           onPress={() => handleSelect('mobile')}>
-          <Text style={[
+          <Text
+            style={[
               styles.signInWayText,
-              select === 'mobile' && styles.selectedText,
-            ]}>Mobile</Text>
+              select === 'mobile' && globalCss.textColorWhite,
+            ]}>
+            Mobile
+          </Text>
         </TouchableOpacity>
       </View>
       <View>{select === 'email' ? <Email /> : <PhoneNmbr />}</View>
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 10,
-    marginTop: 40
+    marginTop: 40,
   },
   haveAnAccountText: {
     fontWeight: 'bold',
@@ -177,9 +181,6 @@ const styles = StyleSheet.create({
   },
   signInWayText: {
     fontWeight: 'bold',
-    color: '#777e90'
-  },
-  selectedText: {
-    color: '#fff',
+    color: '#777e90',
   },
 });

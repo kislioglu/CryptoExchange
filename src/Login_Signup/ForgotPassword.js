@@ -70,12 +70,19 @@ export default function ForgotPassword() {
       </View>
       <View style={styles.btnsView}>
         <TouchableOpacity style={[styles.LoginBtn, globalCss.btnPrimary]}>
-          <Text style={styles.LoginBtnText}>Continue</Text>
+          <Text style={[styles.LoginBtnText, globalCss.textColorWhite]}>
+            Continue
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('SignIn')}
           style={[styles.LoginBtn, {backgroundColor: '#fff'}]}>
-          <Text style={[styles.LoginBtnText, {color: '#000'}]}>
+          <Text
+            style={[
+              styles.LoginBtnText,
+              globalCss.textColorWhite,
+              {color: '#000'},
+            ]}>
             Nevermind, I got it
           </Text>
         </TouchableOpacity>
@@ -180,6 +187,5 @@ const styles = StyleSheet.create({
   },
   LoginBtnText: {
     fontWeight: '600',
-    color: '#fff',
   },
 });

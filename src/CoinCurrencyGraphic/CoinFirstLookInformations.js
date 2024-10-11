@@ -142,12 +142,14 @@ export default function CoinFirstLookInformations({route}) {
         <TouchableOpacity
           style={styles.buyButton}
           onPress={() => setBuyModalVisible(true)}>
-          <Text style={styles.buttonText}>Buy</Text>
+          <Text style={[styles.buttonText, globalCss.textColorWhite]}>Buy</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.sellButton}
           onPress={() => setSellModalVisible(true)}>
-          <Text style={styles.buttonText}>Sell</Text>
+          <Text style={[styles.buttonText, globalCss.textColorWhite]}>
+            Sell
+          </Text>
         </TouchableOpacity>
       </View>
 
@@ -256,7 +258,6 @@ const styles = StyleSheet.create({
     width: '40%',
   },
   buttonText: {
-    color: '#fff',
     fontWeight: 'bold',
     textAlign: 'center',
   },

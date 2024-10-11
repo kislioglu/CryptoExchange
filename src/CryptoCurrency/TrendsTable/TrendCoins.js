@@ -23,7 +23,7 @@ export default function TrendCoins({trend}) {
           onPress={() => handleOnPress(trend)}
           activeOpacity={0.8}
           style={[styles.buyBtn, globalCss.btnPrimary]}>
-          <Text style={styles.buyBtnText}>Buy</Text>
+          <Text style={[styles.buyBtnText, globalCss.textColorWhite]}>Buy</Text>
         </TouchableOpacity>
       </View>
 
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   buyBtnText: {
-    color: '#fff',
     fontWeight: 'bold',
   },
   itemContainerView: {

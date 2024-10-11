@@ -154,12 +154,14 @@ export default function BankDeposit() {
           },
         ]}>
         <Text
-          style={{
-            textAlign: 'center',
-            color: '#fff',
-            fontWeight: 'bold',
-            fontSize: 16,
-          }}>
+          style={[
+            {
+              textAlign: 'center',
+              fontWeight: 'bold',
+              fontSize: 16,
+            },
+            globalCss.textColorWhite,
+          ]}>
           Continue
         </Text>
       </TouchableOpacity>

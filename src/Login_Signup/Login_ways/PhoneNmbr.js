@@ -91,7 +91,9 @@ export default function PhoneNmbr() {
         </TouchableOpacity>
       </View>
       <TouchableOpacity style={[styles.LoginBtn, globalCss.btnPrimary]}>
-        <Text style={styles.LoginBtnText}>Login</Text>
+        <Text style={[styles.LoginBtnText, globalCss.textColorWhite]}>
+          Login
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -166,6 +168,5 @@ const styles = StyleSheet.create({
   },
   LoginBtnText: {
     fontWeight: '600',
-    color: '#fff',
   },
 });

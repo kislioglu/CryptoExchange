@@ -62,7 +62,9 @@ export default function ContactUs() {
         <TouchableOpacity
           onPress={() => navigation.navigate('ContactUsContent')}
           style={styles.contactUsButton}>
-          <Text style={styles.contactUsText}>Contact Us</Text>
+          <Text style={[styles.contactUsText, globalCss.textColorWhite]}>
+            Contact Us
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -129,6 +131,5 @@ const styles = StyleSheet.create({
   },
   contactUsText: {
     fontWeight: 'bold',
-    color: '#fff',
   },
 });

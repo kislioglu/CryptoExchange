@@ -11,7 +11,7 @@ import {
 import React, {useEffect, useState} from 'react';
 import CheckBox from '@react-native-community/checkbox';
 import {useNavigation} from '@react-navigation/native';
-import { globalCss } from '../../styles/globalCss';
+import {globalCss} from '../../styles/globalCss';
 
 export default function Signup() {
   const [email, setEmail] = useState('');
@@ -81,7 +81,9 @@ export default function Signup() {
               style={styles.googleAndAppleImg}
               source={require('../../assets/googleMail.png')}
             />
-            <Text style={styles.googleAndAppleText}>Google</Text>
+            <Text style={[styles.googleAndAppleText, globalCss.textColorWhite]}>
+              Google
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             activeOpacity={0.7}
@@ -90,7 +92,9 @@ export default function Signup() {
               style={styles.googleAndAppleImg}
               source={require('../../assets/appleFullInside.png')}
             />
-            <Text style={styles.googleAndAppleText}>Apple</Text>
+            <Text style={[styles.googleAndAppleText, globalCss.textColorWhite]}>
+              Apple
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -264,7 +268,6 @@ const styles = StyleSheet.create({
   },
   googleAndAppleText: {
     fontWeight: '600',
-    color: '#fff',
     fontSize: 16,
   },
   border: {
@@ -334,6 +337,5 @@ const styles = StyleSheet.create({
   },
   signUpText: {
     fontWeight: '600',
-    color: '#fff',
   },
 });

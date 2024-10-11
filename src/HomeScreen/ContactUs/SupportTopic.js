@@ -143,7 +143,7 @@ export default function SupportTopic() {
             </View>
           </View>
           <TouchableOpacity style={[styles.sendMsgBtn, globalCss.btnPrimary]}>
-            <Text style={{color: '#fff', fontWeight: 'bold'}}>
+            <Text style={[{fontWeight: 'bold'}, globalCss.textColorWhite]}>
               Send message
             </Text>
           </TouchableOpacity>
