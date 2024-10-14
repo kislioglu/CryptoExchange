@@ -1,46 +1,19 @@
-import {View, Image, TouchableOpacity, Animated, StyleSheet} from 'react-native';
-import React, {useRef, useState} from 'react';
-import HamburgerMenu from './HamburgerMenu';
+import {View, TouchableOpacity, Animated, StyleSheet} from 'react-native';
+import React from 'react';
+import useMenuStore from './zustand/UseMenuStore';
 
 export default function HamburgerMenuToggle() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const topLine = useRef(new Animated.Value(0)).current;
-  const bottomLine = useRef(new Animated.Value(0)).current;
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-
-    Animated.parallel([
-      Animated.timing(topLine, {
-        toValue: isOpen ? 0 : 1,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-      Animated.timing(bottomLine, {
-        toValue: isOpen ? 0 : 1,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  };
+  const {topLine, bottomLine, toggleMenu} = useMenuStore();
   return (
     <View>
       <View
         style={{
-          width: '100%',
-          height: 80,
+          height: 40,
+          width: 40,
           zIndex: 10,
-          justifyContent: 'center',
           backgroundColor: '#fff',
         }}>
-        <View style={styles.logoView}>
-          <View style={{flexDirection: 'row', gap: 5, marginLeft: 20}}>
-            <Image
-              style={styles.logoImg}
-              source={require('../../../assets/logo.png')}
-            />
-          </View>
+        <View style={styles.headerView}>
           <TouchableOpacity onPress={toggleMenu}>
             <View style={styles.container}>
               <Animated.View
@@ -89,13 +62,12 @@ export default function HamburgerMenuToggle() {
           </TouchableOpacity>
         </View>
       </View>
-      {isOpen ? <HamburgerMenu /> : null}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  logoView: {
+  headerView: {
     flexDirection: 'row',
     alignItems: 'center',
     height: '100%',
