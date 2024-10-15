@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 import HamburgerMenuToggle from '../HamburgerMenu/HamburgerMenuToggle';
 import useMenuStore from '../HamburgerMenu/zustand/UseMenuStore';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
+import LanguageAndCurrencySelector from './LanguageAndCurrencySelector/LanguageAndCurrencySelector';
 
 export default function Header() {
   const {isOpen} = useMenuStore();
@@ -36,6 +37,17 @@ export default function Header() {
           style={styles.logoImg}
           source={require('../../../assets/logo.png')}
         />
+      </View>
+      <View
+        style={{
+          height: 60,
+          right: 100,
+          width: 100,
+          position: 'absolute',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <LanguageAndCurrencySelector />
       </View>
       <View
         style={{
