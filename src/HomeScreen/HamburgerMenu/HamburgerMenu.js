@@ -18,7 +18,8 @@ export default function HamburgerMenu() {
   const screenWidth = Dimensions.get('window').width;
 
   return (
-    <View style={[styles.container, {height: screenHeight, width: screenWidth}]}>
+    <View
+      style={[styles.container, {height: screenHeight, width: screenWidth}]}>
       <View style={{marginHorizontal: 30, gap: 10, marginTop: 50}}>
         <TouchableOpacity
           onPress={() => navigation.navigate('TodaysTrendCurrencyPrices')}
@@ -72,7 +73,7 @@ export default function HamburgerMenu() {
       <View
         style={{
           flexDirection: 'row',
-          bottom: 0,
+          bottom: 80,
           position: 'absolute',
           alignSelf: 'center',
           justifyContent: 'space-between',
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     backgroundColor: '#fff',
+    marginTop: 40,
   },
   eachBtn: {
     height: 60,
