@@ -10,12 +10,18 @@ import TodaysTrendCurrencyPrices from '../CryptoCurrency/TodaysTrendCurrencyPric
 import CoinFirstLookInformations from '../CoinCurrencyGraphic/CoinFirstLookInformations';
 import ContactUsContent from '../HomeScreen/ContactUs/ContactUsContent';
 import BankDeposit from '../HomeScreen/HamburgerMenu/DepositTypes/BankDeposit';
+import Header from '../HomeScreen/Header/Header';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Navigator
+        screenOptions={{
+          header: () => <Header />,
+          contentStyle: {backgroundColor: '#fff'},
+        }}
+        initialRouteName="Welcome">
         <Stack.Screen
           options={{headerShown: false}}
           name="Welcome"
@@ -26,11 +32,7 @@ export default function Navigation() {
           name="Home"
           component={Home}
         />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="ContactUsContent"
-          component={ContactUsContent}
-        />
+        <Stack.Screen name="ContactUsContent" component={ContactUsContent} />
         <Stack.Screen
           options={{headerShown: false}}
           name="Signup"
@@ -47,20 +49,14 @@ export default function Navigation() {
           component={ForgotPassword}
         />
         <Stack.Screen
-          options={{headerShown: false}}
           name="TodaysTrendCurrencyPrices"
           component={TodaysTrendCurrencyPrices}
         />
         <Stack.Screen
-          options={{headerShown: false}}
           name="CoinFirstLookInformations"
           component={CoinFirstLookInformations}
         />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="BankDeposit"
-          component={BankDeposit} 
-        />
+        <Stack.Screen name="BankDeposit" component={BankDeposit} />
       </Stack.Navigator>
     </NavigationContainer>
   );
