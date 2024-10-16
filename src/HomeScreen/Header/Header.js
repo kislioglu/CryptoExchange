@@ -24,6 +24,7 @@ export default function Header() {
         width: '100%',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
       }}>
       <View
         style={{
