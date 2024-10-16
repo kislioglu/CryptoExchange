@@ -1,3 +1,5 @@
+import React, {useContext, useEffect, useState} from 'react';
+import CryptoRequest from '../../services/ApiRequests';
 import {
   View,
   Text,
@@ -6,50 +8,31 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import CryptoRequest from '../../services/ApiRequests';
+import {LanguageAndCurrencyContext} from '../HomeScreen/Header/LanguageAndCurrencySelector/LanguageAndCurrencyContext';
 import Graphics from './Graphics';
 import BuyModal from './Graphics/Modals/BuyModal';
 import SellModal from './Graphics/Modals/SellModal';
 import {globalCss} from '../../styles/globalCss';
 
 export default function CoinFirstLookInformations({route}) {
-  const coinData = CryptoRequest();
+  const {selectedCoin} = route.params;
+  const coinData = CryptoRequest(selectedCoin?.item.id);
+  const {selectedCurrency} = useContext(LanguageAndCurrencyContext);
   const [coinsInfo, setCoinsInfo] = useState();
   const [spark, setSpark] = useState([]);
-  const [matchedCoin, setMatchedCoin] = useState();
-  const {selectedCoin} = route.params;
   const [isBuyModalVisible, setBuyModalVisible] = useState(false);
   const [isSellModalVisible, setSellModalVisible] = useState(false);
 
   useEffect(() => {
     if (coinData) {
-      const findMatchedCoin = coinData.find(
-        obj => obj.id === selectedCoin?.item.id,
-      );
-      if (findMatchedCoin) {
-        setMatchedCoin(findMatchedCoin);
-      }
+      setCoinsInfo(coinData);
     }
-  }, [coinData, selectedCoin?.item.id]);
+  }, [coinData]);
 
   useEffect(() => {
-    if (matchedCoin) {
-      setCoinsInfo(matchedCoin);
-    }
-  }, [matchedCoin]);
-
-  useEffect(() => {
-    if (
-      coinsInfo &&
-      coinsInfo.sparkline_in_7d &&
-      coinsInfo.sparkline_in_7d.price
-    ) {
+    if (coinsInfo?.sparkline_in_7d?.price) {
       const sparklineData = coinsInfo.sparkline_in_7d.price.map(
-        (price, index) => ({
-          x: index,
-          y: price,
-        }),
+        (price, index) => ({x: index, y: price}),
       );
       setSpark(sparklineData);
     }
@@ -60,14 +43,14 @@ export default function CoinFirstLookInformations({route}) {
 
   return (
     <View style={styles.container}>
-      {/* Scrollable content */}
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={styles.scrollContainer}>
         <View style={styles.subContainerView}>
           <View style={styles.coinNameAndPriceView}>
             <Text style={styles.selectedCoinAndCurrencyText}>
-              {coinsInfo?.symbol?.toUpperCase()}/USDT
+              {coinsInfo?.symbol?.toUpperCase()}/
+              {selectedCurrency.toUpperCase()}
             </Text>
             <Text style={{fontWeight: 'bold', color: '#777e90'}}>
               {coinsInfo?.name}
@@ -153,7 +136,6 @@ export default function CoinFirstLookInformations({route}) {
         </TouchableOpacity>
       </View>
 
-      {/* Modal for Buy/Sell */}
       <BuyModal
         isBuyModalVisible={isBuyModalVisible}
         setBuyModalVisible={setBuyModalVisible}
