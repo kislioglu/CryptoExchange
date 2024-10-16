@@ -78,16 +78,6 @@ export default function CoinCurrencyGraphics({isValidData, spark}) {
           />
         </Chart>
       )}
-      {!isValidData && (
-        <View style={{alignItems: 'center', gap: 20}}>
-          <Image source={require('../../assets/sorry.png')} />
-          <Text style={styles.noDataText}>
-            Can not reach data for selected coin. Sorry about that. The api
-            which I use for this app doesn't include all coins. Selected coin
-            listed on the trend coins but there is no market data for it.
-          </Text>
-        </View>
-      )}
     </View>
   );
 }
