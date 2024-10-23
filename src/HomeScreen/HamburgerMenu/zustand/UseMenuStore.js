@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 import {Animated} from 'react-native';
 
-const useMenuStore = create((set, get) => ({
+export const useMenuStore = create((set, get) => ({
   isOpen: false,
   topLine: new Animated.Value(0),
   bottomLine: new Animated.Value(0),
@@ -25,4 +25,19 @@ const useMenuStore = create((set, get) => ({
   },
 }));
 
-export default useMenuStore;
+export const useProfileStore = create((set, get) => ({
+  isOpened: false,
+
+  toggleMenu: () => {
+    const {isOpened} = get();
+    set({isOpened: !isOpened});
+  },
+}));
+export const useNotificationStore = create((set, get) => ({
+  showNotifications: false,
+
+  toggleMenu: () => {
+    const {showNotifications} = get();
+    set({showNotifications: !showNotifications});
+  },
+}));
