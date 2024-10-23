@@ -1,6 +1,6 @@
 import {View, TouchableOpacity, Animated, StyleSheet} from 'react-native';
 import React from 'react';
-import useMenuStore from './zustand/UseMenuStore';
+import {useMenuStore} from './zustand/UseMenuStore';
 
 export default function HamburgerMenuToggle() {
   const {topLine, bottomLine, toggleMenu} = useMenuStore();
