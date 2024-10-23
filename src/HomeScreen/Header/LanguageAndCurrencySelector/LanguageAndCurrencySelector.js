@@ -92,13 +92,11 @@ export default function LanguageAndCurrencySelector() {
       <TouchableOpacity
         onPress={() => setIsSelectorVisible(true)}
         style={{
-          backgroundColor: '#fff',
           flexDirection: 'row',
           width: 100,
           height: '100%',
-          flex: 1,
-          alignItems: 'center',
           justifyContent: 'center',
+          alignItems: 'center',
         }}>
         <Text style={styles.currencyAndLanguage}>{selectedLanguage}</Text>
         <Text style={styles.currencyAndLanguage}>{'/'}</Text>
