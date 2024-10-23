@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     backgroundColor: '#fff',
-    marginTop: 40,
+    top: 80,
   },
   eachBtn: {
     height: 60,
