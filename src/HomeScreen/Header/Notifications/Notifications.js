@@ -8,9 +8,18 @@ import {
 import React from 'react';
 import {staticNotifications} from '../../../../staticDatas/Notifications';
 import {globalCss} from '../../../../styles/globalCss';
+import {useNavigation} from '@react-navigation/native';
+import {useNotificationStore} from '../../HamburgerMenu/zustand/UseMenuStore';
 
 export default function Notifications() {
   const screenHeight = Dimensions.get('window');
+  const navigation = useNavigation();
+
+  const {toggleMenu} = useNotificationStore();
+  const notificationOnPress = () => {
+    navigation.navigate('DetailsOfNotifications');
+    toggleMenu();
+  };
   return (
     <View
       style={{
@@ -31,6 +40,7 @@ export default function Notifications() {
         nestedScrollEnabled={true}>
         {staticNotifications.map((notification, index) => (
           <TouchableOpacity
+            onPress={() => notificationOnPress()}
             style={[
               {
                 gap: 10,
