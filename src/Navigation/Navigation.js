@@ -11,6 +11,7 @@ import CoinFirstLookInformations from '../CoinCurrencyGraphic/CoinFirstLookInfor
 import ContactUsContent from '../HomeScreen/ContactUs/ContactUsContent';
 import BankDeposit from '../HomeScreen/HamburgerMenu/DepositTypes/BankDeposit';
 import Header from '../HomeScreen/Header/Header';
+import DetailsOfNotifications from '../HomeScreen/Header/Notifications/DetailsOfNotifications';
 const Stack = createNativeStackNavigator();
 
 export default function Navigation() {
@@ -57,6 +58,10 @@ export default function Navigation() {
           component={CoinFirstLookInformations}
         />
         <Stack.Screen name="BankDeposit" component={BankDeposit} />
+        <Stack.Screen
+          name="DetailsOfNotifications"
+          component={DetailsOfNotifications}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
